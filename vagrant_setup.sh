@@ -1,13 +1,19 @@
 #!/bin/sh
 
+# fix for error message from Vagrant
 if `tty -s`; then
    mesg n
 fi
 
 # set xtuple source directory
-XTUPLE_DIR="dev/xtuple"
+XTUPLE_DIR=dev/xtuple
 # location of config file
-FILE="~/dev/xtuple/node-datasource/config.js"
+FILE=~/dev/xtuple/node-datasource/config.js
+
+cdir() {
+	cd $1
+	echo "Changing directory to $1"
+}
 
 # abort provisioning if development environment is already installed
 if [ -f $FILE ];
@@ -16,12 +22,15 @@ then
 else
    # install git
    sudo apt-get install git -y
+   echo $(pwd)
 
    # go to xtuple source directory
-   cd $XTUPLE_DIR
+   cdir $XTUPLE_DIR
    echo "Now in the xtuple source directory"
-
+   echo $(pwd)
+   
    echo "Installing development environment"
-   sudo sh ./scripts/install_xtuple.sh
-   echo "The xTuple install development script is done!" 
+   sudo ./scripts/install_xtuple.sh
+   echo "The xTuple install development script is done!"
+   echo $(pwd)
 fi
