@@ -51,11 +51,14 @@ Vagrant.configure("2") do |config|
     v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
     
     # Use VBoxManage to customize the VM. For example to change memory:
-    v.customize ["modifyvm", :id, "--memory", "2048"]
+    v.customize ["modifyvm", :id, "--memory", "1024"]
     
     # Via http://blog.liip.ch/archive/2012/07/25/vagrant-and-node-js-quick-tip.html
     v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]	
   end
+
+  # Run install script virtual machine is created
+  config.vm.provision "shell", path: "vagrant_setup.sh"
 
   # View the documentation for the provider you're using for more
   # information on available options.
