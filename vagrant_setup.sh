@@ -6,9 +6,9 @@ if `tty -s`; then
 fi
 
 # set xtuple source directory
-XTUPLE_DIR=dev/xtuple
+XTUPLE_DIR=/home/vagrant/dev/xtuple/
 # location of config file
-FILE=~/dev/xtuple/node-datasource/config.js
+FILE=$XTUPLE_DIR/node-datasource/config.js
 
 cdir() {
 	cd $1
@@ -22,15 +22,13 @@ then
 else
    # install git
    sudo apt-get install git -y
-   echo $(pwd)
+   echo "Git has been installed!"
 
    # go to xtuple source directory
    cdir $XTUPLE_DIR
    echo "Now in the xtuple source directory"
-   echo $(pwd)
-   
+
    echo "Installing development environment"
    sudo ./scripts/install_xtuple.sh
    echo "The xTuple install development script is done!"
-   echo $(pwd)
 fi
