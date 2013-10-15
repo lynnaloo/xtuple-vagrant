@@ -38,7 +38,7 @@ Connect to the virtual machine via ssh:
     vagrant ssh
 - The xTuple source code is synced to the folder `~/dev`
 
-## Github SSH Key Pair ###
+### Github SSH Key Pair ###
 Create an SSH keypair so GitHub can authenticate your push requests:
 
     ssh-keygen # this isn't extremely secure but it'll do
