@@ -15,8 +15,9 @@ Clone the `xtuple` and `xtuple-extensions` repositories to a directory on your h
     git clone git@github.com:{yourusername}/xtuple.git
     git clone git@github.com:{yourusername}/xtuple-extensions.git
     
-Clone the `xtuple-vagrant` repository in a separate directory:
+Clone the `xtuple-vagrant` repository in a separate directory adjacent to your development folder:
 
+    cd ..
     mkdir vagrant
     cd vagrant
     git clone git@github.com:{yourusername}/xtuple-vagrant.git
@@ -24,6 +25,7 @@ Clone the `xtuple-vagrant` repository in a separate directory:
 ### Setup Vagrant ###
 
 - Edit the `Vagrantfile` and change the `sourceDir` variable to match the location of the cloned xTuple source code: `sourceDir = "../../dev"`
+  - This path should be relative to the location of the Vagrantfile
 
 - [Optional] Edit the host machine's `hosts` file (private/etc/root) as root and add an entry for the virtual machine: `192.168.33.10 xtuple-vagrant`
 
