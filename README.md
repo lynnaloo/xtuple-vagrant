@@ -4,7 +4,7 @@
 
 ###  Install Vagrant ###
 
-- Make sure that you first have [VirtualBox](http://docs.vagrantup.com/v2/installation/) installed
+- Make sure that you first have [VirtualBox](https://www.virtualbox.org/wiki/Downloads) installed
 - Download and install Vagrant 1.3.4 [here](http://downloads.vagrantup.com/tags/v1.3.4)
   - Package managers like apt-get and gem install are installing an older version, so the download is recommended
 
