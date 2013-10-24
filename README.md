@@ -4,9 +4,9 @@
 
 ###  Install Vagrant ###
 
-- Make sure that you first have [VirtualBox](https://www.virtualbox.org/wiki/Downloads) installed
-- Download and install Vagrant 1.3.4 [here](http://downloads.vagrantup.com/tags/v1.3.4)
-  - Package managers like apt-get and gem install are installing an older version, so the download is recommended
+- Download and install [VirtualBox](https://www.virtualbox.org/wiki/Downloads) 4.2
+- Download and install [Vagrant](http://downloads.vagrantup.com/tags/v1.3.4) 1.3.4
+  - Package managers like apt-get and gem install are installing an older version of Vagrant, so the download is recommended
 
 Clone the `xtuple` and `xtuple-extensions` repositories to a directory on your host machine:
 
@@ -15,7 +15,7 @@ Clone the `xtuple` and `xtuple-extensions` repositories to a directory on your h
     git clone git@github.com:{yourusername}/xtuple.git
     git clone git@github.com:{yourusername}/xtuple-extensions.git
     
-Clone this `xtuple-vagrant` repository in a separate directory:
+Clone the `xtuple-vagrant` repository in a separate directory:
 
     mkdir vagrant
     cd vagrant
@@ -23,8 +23,9 @@ Clone this `xtuple-vagrant` repository in a separate directory:
     
 ### Setup Vagrant ###
 
-- Edit the `Vagrantfile` and change the `sourceDir` variable to match the location of the cloned xTuple source code
-- Edit the host machine's `hosts` file and add an entry for the virtual machine: `192.168.33.10 xtuple-vagrant`
+- Edit the `Vagrantfile` and change the `sourceDir` variable to match the location of the cloned xTuple source code: `sourceDir = "../../dev"`
+
+- [Optional] Edit the host machine's `hosts` file (private/etc/root) as root and add an entry for the virtual machine: `192.168.33.10 xtuple-vagrant`
 
 ### Connect to the Virtual Machine ###
 
@@ -37,6 +38,17 @@ Connect to the virtual machine via ssh:
     
     vagrant ssh
 - The xTuple source code is synced to the folder `~/dev`
+
+
+Start the datasource:
+
+    cd ../node-datasource
+    sudo ./main.js
+
+Launch your local browser and navigate to the static IP Address `http://192.168.33.10` or 
+the alias that you used in the hosts file `http://xtuple-vagrant`
+
+Default username and password to your local application are `admin`
 
 ### Github SSH Key Pair ###
 Create an SSH keypair so GitHub can authenticate your push requests:
