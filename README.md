@@ -8,6 +8,9 @@
 - Download and install [Vagrant](http://downloads.vagrantup.com/tags/v1.3.4) 1.3.4
   - Package managers like apt-get and gem install are installing an older version of Vagrant, so the download is recommended
 
+This tutorial is currently geared towards Unix-based operating systems. 
+For Windows systems, [this](https://github.com/xtuple/xtuple/wiki/Step-by-step-setup-of-a-Virtual-Development-Environment-using-Vagrant) is currenty still the best tutorial to follow. 
+
 Clone the `xtuple` and `xtuple-extensions` repositories to a directory on your host machine:
 
     mkdir dev
@@ -44,7 +47,7 @@ Connect to the virtual machine via ssh:
 
 Start the datasource:
 
-    cd ../node-datasource
+    cd dev/xtuple/node-datasource
     sudo ./main.js
 
 Launch your local browser and navigate to the static IP Address `http://192.168.33.10` or 
