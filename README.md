@@ -8,44 +8,49 @@
 - Download and install [Vagrant](http://downloads.vagrantup.com/tags/v1.3.4) 1.3.4
   - Package managers like apt-get and gem install are installing an older version of Vagrant, so the download is recommended
 
+This tutorial is currently geared towards Unix-based operating systems.
+For Windows systems, [this](https://github.com/xtuple/xtuple/wiki/Step-by-step-setup-of-a-Virtual-Development-Environment-using-Vagrant) is currenty still the best tutorial to follow.
+
 Clone the `xtuple` and `xtuple-extensions` repositories to a directory on your host machine:
 
     mkdir dev
     cd dev
     git clone git@github.com:{yourusername}/xtuple.git
     git clone git@github.com:{yourusername}/xtuple-extensions.git
-    
-Clone the `xtuple-vagrant` repository in a separate directory:
 
+Clone the `xtuple-vagrant` repository in a separate directory adjacent to your development folder:
+
+    cd ..
     mkdir vagrant
     cd vagrant
     git clone git@github.com:{yourusername}/xtuple-vagrant.git
-    
+
 ### Setup Vagrant ###
 
 - Edit the `Vagrantfile` and change the `sourceDir` variable to match the location of the cloned xTuple source code: `sourceDir = "../../dev"`
+  - This path should be relative to the location of the Vagrantfile
 
 - [Optional] Edit the host machine's `hosts` file (private/etc/root) as root and add an entry for the virtual machine: `192.168.33.10 xtuple-vagrant`
 
 ### Connect to the Virtual Machine ###
 
 Start the virtual machine:
-    
+
     vagrant up
-- Vagrant will automatically run a shell script to install git and the xTuple development environment 
+- Vagrant will automatically run a shell script to install git and the xTuple development environment
 
 Connect to the virtual machine via ssh:
-    
+
     vagrant ssh
 - The xTuple source code is synced to the folder `~/dev`
 
 
 Start the datasource:
 
-    cd ../node-datasource
+    cd dev/xtuple/node-datasource
     sudo ./main.js
 
-Launch your local browser and navigate to the static IP Address `http://192.168.33.10` or 
+Launch your local browser and navigate to the static IP Address `http://192.168.33.10` or
 the alias that you used in the hosts file `http://xtuple-vagrant`
 
 Default username and password to your local application are `admin`
@@ -63,7 +68,7 @@ In your web browser, navigate to your home page on GitHub. Click on Edit Your Pr
 
 ### Additional Information ###
 
-Edit `pg_hba.conf` file on the guest machine so that the host machine can access Postgres: 
+Edit `pg_hba.conf` file on the guest machine so that the host machine can access Postgres:
 
     cd/etc/postgresql/[postgres version]/main
 
