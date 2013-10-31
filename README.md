@@ -11,6 +11,8 @@
 This tutorial is currently geared towards Unix-based operating systems.
 For Windows systems, [this](https://github.com/xtuple/xtuple/wiki/Step-by-step-setup-of-a-Virtual-Development-Environment-using-Vagrant) is currenty still the best tutorial to follow.
 
+Create forks of the `xtuple`, `xtuple-extensions`, and `xtuple-vagrant` repositories on Github [HOW?](https://github.com/xtuple/xtuple/wiki/Setting-up-an-Ubuntu-Virtual-Machine#get-xtuple-code-base)
+
 Clone the `xtuple` and `xtuple-extensions` repositories to a directory on your host machine:
 
     mkdir dev
