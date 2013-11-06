@@ -70,7 +70,11 @@ In your web browser, navigate to your home page on GitHub. Click on Edit Your Pr
 
 ### Additional Information ###
 
-Edit `pg_hba.conf` file on the guest machine and add an entry to allow access from the host machine:
+Edit `pg_hba.conf` to allow the host machine to access Postgres:
+
+    vim cd/etc/postgresql/[postgres version]/main/pg_hba.conf
+    
+Add an entry for the IP address of the host machine:
 
     host    all     all     [host ip]/32   trust
     
