@@ -33,6 +33,6 @@ else
    # if you don't run the script in the scripts directory,
    # you get errors which is a problem with the install script
    cdir scripts
-   sudo sh install_xtuple.sh
+   sudo ./install_xtuple.sh
    echo "The xTuple install development script is done!"
 fi
