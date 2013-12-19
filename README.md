@@ -5,7 +5,7 @@
 ###  Install Vagrant ###
 
 - Download and install [VirtualBox](https://www.virtualbox.org/wiki/Downloads) 4.2
-- Download and install [Vagrant](http://downloads.vagrantup.com/tags/v1.3.4) 1.3.4
+- Download and install [Vagrant](http://downloads.vagrantup.com/tags/v1.3.5) 1.3.5
   - Package managers like apt-get and gem install are installing an older version of Vagrant, so the download is recommended
 
 This tutorial is currently geared towards Unix-based operating systems.
@@ -50,10 +50,10 @@ Connect to the virtual machine via ssh:
 Start the datasource:
 
     cd dev/xtuple/node-datasource
-    sudo ./main.js
+    node main.js
 
-Launch your local browser and navigate to the static IP Address `http://192.168.33.10` or
-the alias that you used in the hosts file `http://xtuple-vagrant`
+Launch your local browser and navigate to the static IP Address `http://192.168.33.10:8888` or
+the alias that you used in the hosts file `http://xtuple-vagrant:8888`
 
 Default username and password to your local application are `admin`
 
@@ -70,8 +70,12 @@ In your web browser, navigate to your home page on GitHub. Click on Edit Your Pr
 
 ### Additional Information ###
 
-Edit `pg_hba.conf` file on the guest machine so that the host machine can access Postgres:
+Edit `pg_hba.conf` to allow the host machine to access Postgres:
 
-    cd/etc/postgresql/[postgres version]/main
+    vim cd/etc/postgresql/[postgres version]/main/pg_hba.conf
+    
+Add an entry for the IP address of the host machine:
 
+    host    all     all     [host ip]/32   trust
+    
 The synced folder ```dev``` allows for files to be edited in either the virtual machine or on the host machine and the files will be synced both ways

@@ -30,9 +30,6 @@ else
    echo "Now in the xtuple source directory"
 
    echo "Installing development environment"
-   # if you don't run the script in the scripts directory,
-   # you get errors which is a problem with the install script
-   cdir scripts
-   sudo ./install_xtuple.sh
+   bash scripts/install_xtuple.sh
    echo "The xTuple install development script is done!"
 fi
