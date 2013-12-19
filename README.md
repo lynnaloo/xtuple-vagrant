@@ -50,10 +50,10 @@ Connect to the virtual machine via ssh:
 Start the datasource:
 
     cd dev/xtuple/node-datasource
-    sudo node main.js
+    node main.js
 
-Launch your local browser and navigate to the static IP Address `http://192.168.33.10` or
-the alias that you used in the hosts file `http://xtuple-vagrant`
+Launch your local browser and navigate to the static IP Address `http://192.168.33.10:8888` or
+the alias that you used in the hosts file `http://xtuple-vagrant:8888`
 
 Default username and password to your local application are `admin`
 
