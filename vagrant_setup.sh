@@ -30,6 +30,6 @@ else
    echo "Now in the xtuple source directory"
 
    echo "Installing development environment"
-   sh /scripts/install_xtuple.sh
+   sh ./scripts/install_xtuple.sh
    echo "The xTuple install development script is done!"
 fi
