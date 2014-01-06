@@ -11,11 +11,11 @@ Vagrant.configure("2") do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "precise64localefix"
+  config.vm.box = "precise64"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
-  config.vm.box_url = "https://dl.dropbox.com/u/14292474/vagrantboxes/precise64-ruby-1.9.3-p194.box"
+  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
@@ -56,6 +56,9 @@ Vagrant.configure("2") do |config|
     # Via http://blog.liip.ch/archive/2012/07/25/vagrant-and-node-js-quick-tip.html
     v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
   end
+
+  # This ensures that the locale is correctly set for Postgres
+  config.vm.provision "shell", inline: 'update-locale LC_ALL="en_US.utf8"'
 
   # Run install script virtual machine is created
   # This forces the script to *not* be run as sudo
