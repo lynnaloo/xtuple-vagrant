@@ -1,6 +1,9 @@
 # Auto detect text files and perform LF normalization
 # Normalize the files on commit, and always convert them to LF on checkout
-* text eol=lf
+* text=auto
+
+# Scripts should maintain Unix line endings
+*.sh text eol=lf
 
 # Definitively text files 
 *.txt text
