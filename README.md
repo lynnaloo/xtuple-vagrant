@@ -36,6 +36,11 @@ Clone the `xtuple-vagrant` repository in a separate directory adjacent to your d
 
 ### Connect to the Virtual Machine ###
 
+Note: If you are using an existing Vagrant install, please verify that you remove any previously created
+"precise64" vagrant boxes:
+
+    vagrant box remove precise64
+
 Start the virtual machine:
 
     vagrant up
