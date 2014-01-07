@@ -19,7 +19,7 @@ cdir() {
 # abort provisioning if development environment is already installed
 if [ -f $FILE ];
 then
-   echo "Development environment has been installed"
+   echo "Development environment has already been installed (config.js exists)"
 else
    # install git
    sudo apt-get install git -y
