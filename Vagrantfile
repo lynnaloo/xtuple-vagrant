@@ -51,14 +51,18 @@ Vagrant.configure("2") do |config|
     v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
 
     # Use VBoxManage to customize the VM. For example to change memory:
-    v.customize ["modifyvm", :id, "--memory", "1024"]
+    v.customize ["modifyvm", :id, "--memory", "2048"]
 
     # Via http://blog.liip.ch/archive/2012/07/25/vagrant-and-node-js-quick-tip.html
     v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
   end
 
+  # This ensures that the locale is correctly set for Postgres
+  config.vm.provision "shell", inline: 'update-locale LC_ALL="en_US.utf8"'
+
   # Run install script virtual machine is created
-  config.vm.provision "shell", path: "vagrant_setup.sh"
+  # This forces the script to *not* be run as sudo
+  config.vm.provision "shell", path: "vagrant_setup.sh", privileged: "false", binary: "false"
 
   # View the documentation for the provider you're using for more
   # information on available options.
