@@ -17,8 +17,8 @@ Clone the `xtuple` and `xtuple-extensions` repositories to a directory on your h
 
     mkdir dev
     cd dev
-    git clone git@github.com:{yourusername}/xtuple.git
-    git clone git@github.com:{yourusername}/xtuple-extensions.git
+    git clone --recursive git://github.com/<username>/xtuple.git
+    git clone --recursive git://github.com/<username>/xtuple-extensions.git
 
 Clone the `xtuple-vagrant` repository in a separate directory adjacent to your development folder:
 
