@@ -4,7 +4,7 @@
 
 ###  Install Vagrant ###
 
-- Download and install [VirtualBox](https://www.virtualbox.org/wiki/Downloads) 4.2
+- Download and install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 - Download and install [Vagrant](http://www.vagrantup.com/downloads.html)
   - Package managers like apt-get and gem install are installing an older version of Vagrant, so the download is highly recommended
 
@@ -73,9 +73,9 @@ In your web browser, navigate to your home page on GitHub. Click on Edit Your Pr
 Edit `pg_hba.conf` to allow the host machine to access Postgres:
 
     vim cd/etc/postgresql/[postgres version]/main/pg_hba.conf
-    
+
 Add an entry for the IP address of the host machine:
 
     host    all     all     [host ip]/32   trust
-    
+
 The synced folder ```dev``` allows for files to be edited in either the virtual machine or on the host machine and the files will be synced both ways
