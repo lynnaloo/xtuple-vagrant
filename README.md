@@ -26,6 +26,7 @@ Clone the `xtuple-vagrant` repository in a separate directory adjacent to your d
     mkdir vagrant
     cd vagrant
     git clone git@github.com:{yourusername}/xtuple-vagrant.git
+    cd xtuple-vagrant
 
 ### Setup Vagrant ###
 
@@ -33,6 +34,10 @@ Clone the `xtuple-vagrant` repository in a separate directory adjacent to your d
   - This path should be relative to the location of the Vagrantfile
 
 - [Optional] Edit the host machine's `hosts` file (private/etc/root) as root and add an entry for the virtual machine: `192.168.33.10 xtuple-vagrant`
+
+### Install VirtualBox Guest Additions Plugin
+
+    vagrant plugin install vagrant-vbguest
 
 ### Connect to the Virtual Machine ###
 
