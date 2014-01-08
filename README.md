@@ -5,8 +5,8 @@
 ###  Install Vagrant ###
 
 - Download and install [VirtualBox](https://www.virtualbox.org/wiki/Downloads) 4.2
-- Download and install [Vagrant](http://downloads.vagrantup.com/tags/v1.3.5) 1.3.5
-  - Package managers like apt-get and gem install are installing an older version of Vagrant, so the download is recommended
+- Download and install [Vagrant](http://www.vagrantup.com/downloads.html)
+  - Package managers like apt-get and gem install are installing an older version of Vagrant, so the download is highly recommended
 
 This tutorial is currently geared towards Unix-based operating systems.
 For Windows systems, [this](https://github.com/xtuple/xtuple/wiki/Step-by-step-setup-of-a-Virtual-Development-Environment-using-Vagrant) is currenty still the best tutorial to follow.
@@ -17,8 +17,8 @@ Clone the `xtuple` and `xtuple-extensions` repositories to a directory on your h
 
     mkdir dev
     cd dev
-    git clone git@github.com:{yourusername}/xtuple.git
-    git clone git@github.com:{yourusername}/xtuple-extensions.git
+    git clone --recursive https://github.com/<username>/xtuple.git
+    git clone --recursive https://github.com/<username>/xtuple-extensions.git
 
 Clone the `xtuple-vagrant` repository in a separate directory adjacent to your development folder:
 
