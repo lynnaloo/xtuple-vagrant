@@ -1,15 +1,14 @@
-# Auto detect text files and perform LF normalization
-# Normalize the files on commit, and always convert them to LF on checkout
-* text=auto
+# Auto detect text files convert to LF on checkout and commit
+* text eol=lf
 
-# Scripts should maintain Unix line endings
-*.sh text eol=lf
-
-# Definitively text files 
+# Definitively text files
 *.txt text
-*.c text
-*.h text
+*.prpt text
 
 # Ensure those won't be messed up with
 *.jpg binary
 *.data binary
+*.png binary
+*.ttf binary
+*.otf binary
+*.eot binary
