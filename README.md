@@ -22,7 +22,7 @@ Clone the `xtuple-vagrant` repository in a separate directory adjacent to your d
     cd ..
     mkdir vagrant
     cd vagrant
-    git clone git@github.com:{yourusername}/xtuple-vagrant.git
+    git clone https://github.com/<username>/xtuple-vagrant.git
     cd xtuple-vagrant
 
 ### Setup Vagrant ###
