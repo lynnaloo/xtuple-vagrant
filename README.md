@@ -4,14 +4,14 @@
 
 ###  Install Vagrant ###
 
-- Download and install [VirtualBox](https://www.virtualbox.org/wiki/Downloads) 4.2
-- Download and install [Vagrant](http://downloads.vagrantup.com/tags/v1.3.5) 1.3.5
-  - Package managers like apt-get and gem install are installing an older version of Vagrant, so the download is recommended
-
-This tutorial is currently geared towards Unix-based operating systems.
-For Windows systems, [this](https://github.com/xtuple/xtuple/wiki/Step-by-step-setup-of-a-Virtual-Development-Environment-using-Vagrant) is currenty still the best tutorial to follow.
+- Download and install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+- Download and install [Vagrant](http://www.vagrantup.com/downloads.html)
+  - Package managers like apt-get and gem install are installing an older version of Vagrant, so the download is highly recommended
 
 Create forks of the `xtuple`, `xtuple-extensions`, and `xtuple-vagrant` repositories on Github [HOW?](https://github.com/xtuple/xtuple/wiki/Setting-up-an-Ubuntu-Virtual-Machine#get-xtuple-code-base)
+
+Note: This document is for setting up a virtual environment on a Unix host. If you are using a Windows host,
+please use [these instructions](https://github.com/lynnaloo/xtuple-vagrant/wiki/Creating-a-Vagrant-Virtual-Environment-on-a-Windows-Host).
 
 Clone the `xtuple` and `xtuple-extensions` repositories to a directory on your host machine:
 
@@ -25,7 +25,8 @@ Clone the `xtuple-vagrant` repository in a separate directory adjacent to your d
     cd ..
     mkdir vagrant
     cd vagrant
-    git clone git@github.com:{yourusername}/xtuple-vagrant.git
+    git clone https://github.com/<username>/xtuple-vagrant.git
+    cd xtuple-vagrant
 
 ### Setup Vagrant ###
 
@@ -33,6 +34,10 @@ Clone the `xtuple-vagrant` repository in a separate directory adjacent to your d
   - This path should be relative to the location of the Vagrantfile
 
 - [Optional] Edit the host machine's `hosts` file (private/etc/root) as root and add an entry for the virtual machine: `192.168.33.10 xtuple-vagrant`
+
+### Install VirtualBox Guest Additions Plugin
+
+    vagrant plugin install vagrant-vbguest
 
 ### Connect to the Virtual Machine ###
 
@@ -57,25 +62,14 @@ the alias that you used in the hosts file `http://xtuple-vagrant:8888`
 
 Default username and password to your local application are `admin`
 
-### Github SSH Key Pair ###
-Create an SSH keypair so GitHub can authenticate your push requests:
-
-    ssh-keygen # this isn't extremely secure but it'll do
-    cat ~/.ssh/id_rsa.pub
-    ssh-rsa AAA[...about 200 more characters]...M8n8/B xtuple@mobiledevvm
-
-The cat command shows the public key that was just generated. Copy this text, starting with the ssh-rsa at the beginning and ending with the xtuple@mobiledevvm at the end (select and either right-click > Copy or Control-Shift-C in the Linux Terminal window).
-
-In your web browser, navigate to your home page on GitHub. Click on Edit Your Profile. Select SSH Keys from the list on the left. Click Add SSH Key. Give this SSH key a title, such as "xTuple Mobile Dev VM", then paste the public key into the Key field. Finally click the Add key button. GitHub will verify your password just to make sure it's you at the keyboard.
-
 ### Additional Information ###
 
 Edit `pg_hba.conf` to allow the host machine to access Postgres:
 
     vim cd/etc/postgresql/[postgres version]/main/pg_hba.conf
-    
+
 Add an entry for the IP address of the host machine:
 
     host    all     all     [host ip]/32   trust
-    
+
 The synced folder ```dev``` allows for files to be edited in either the virtual machine or on the host machine and the files will be synced both ways
