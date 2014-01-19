@@ -66,7 +66,7 @@ Vagrant.configure("2") do |config|
 
     # Use VBoxManage to customize the VM
     # This line disable hw virtualization and increases memory
-    v.customize ["modifyvm", :id, "--hwvirtex", "off", "--memory", "2048"]
+    v.customize ["modifyvm", :id, "--hwvirtex", "off", "--memory", "2048", "--cpus", 1]
 
     # Via http://blog.liip.ch/archive/2012/07/25/vagrant-and-node-js-quick-tip.html
     v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
