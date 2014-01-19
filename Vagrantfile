@@ -61,13 +61,13 @@ Vagrant.configure("2") do |config|
     # Use VBoxManage to customize the VM
     # This line disable hw virtualization and increases memory
     v.customize ["modifyvm", :id, "--memory", "2048"]
-    
+
     # Via http://blog.liip.ch/archive/2012/07/25/vagrant-and-node-js-quick-tip.html
     v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/v-root", "1"]
-    
+
     # Debug VM by booting in Gui mode
     #vb.gui = true
-    
+
     # If the host CPU does not have hardware virtualization support,
     # this will disable that setting in VirtualBox - only works on 32-bit OS
     #v.customize ["modifyvm", :id, "--hwvirtex", "off"]
