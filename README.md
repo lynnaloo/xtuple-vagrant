@@ -62,17 +62,6 @@ the alias that you used in the hosts file `http://xtuple-vagrant:8888`
 
 Default username and password to your local application are `admin`
 
-### Github SSH Key Pair ###
-Create an SSH keypair so GitHub can authenticate your push requests:
-
-    ssh-keygen # this isn't extremely secure but it'll do
-    cat ~/.ssh/id_rsa.pub
-    ssh-rsa AAA[...about 200 more characters]...M8n8/B xtuple@mobiledevvm
-
-The cat command shows the public key that was just generated. Copy this text, starting with the ssh-rsa at the beginning and ending with the xtuple@mobiledevvm at the end (select and either right-click > Copy or Control-Shift-C in the Linux Terminal window).
-
-In your web browser, navigate to your home page on GitHub. Click on Edit Your Profile. Select SSH Keys from the list on the left. Click Add SSH Key. Give this SSH key a title, such as "xTuple Mobile Dev VM", then paste the public key into the Key field. Finally click the Add key button. GitHub will verify your password just to make sure it's you at the keyboard.
-
 ### Additional Information ###
 
 Edit `pg_hba.conf` to allow the host machine to access Postgres:
