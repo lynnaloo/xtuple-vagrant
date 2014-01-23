@@ -2,7 +2,9 @@
 
 [Vagrant](http://docs.vagrantup.com/v2/why-vagrant/index.html) is open-source software used to create lightweight and portable virtual development environments. Vagrant works like a "wrapper" for VirtualBox that can create, configure, and destroy virtual machines with the use of its own terminal commands. This facilitates the setup of environments that do not require any direct interaction with VirtualBox and allows developers to use software development tools in their native operating system.
 
-###  Install Vagrant ###
+These instructions will guide you through the setup of Vagrant and the creation of a 64-bit Ubuntu VirtualBox Virtual Machine that will run on your host machine (native operating system).
+
+###  Install VirtualBox/Vagrant ###
 
 - Download and install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 - Download and install [Vagrant](http://www.vagrantup.com/downloads.html)
