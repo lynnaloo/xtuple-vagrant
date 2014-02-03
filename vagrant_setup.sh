@@ -18,12 +18,11 @@ cdir() {
 sudo apt-get install git -y
 echo "Git has been installed!"
 
+git clone --recursive https://github.com/xtuple/xtuple.git
+
 # go to xtuple source directory
 cdir $XTUPLE_DIR
 echo "Now in the xtuple source directory"
-
-echo "Installing submodules"
-git submodule update --init --recursive
 
 echo "Installing development environment"
 bash scripts/install_xtuple.sh
