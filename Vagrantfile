@@ -79,7 +79,7 @@ Vagrant.configure("2") do |config|
 
   # Run install script virtual machine is created
   # This forces the script to *not* be run as sudo
-  config.vm.provision "shell", path: "vagrant_setup.sh", privileged: "false", binary: "false"
+  config.vm.provision "shell", path: "vagrant_setup.sh"
 
   # Enable provisioning with chef solo, specifying a cookbooks path, roles
   # path, and data_bags path (all relative to this Vagrantfile), and adding
