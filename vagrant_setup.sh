@@ -22,6 +22,9 @@ echo "Git has been installed!"
 cdir $XTUPLE_DIR
 echo "Now in the xtuple source directory"
 
+echo "Installing submodules"
+git submodule update --init --recursive
+
 echo "Installing development environment"
 bash scripts/install_xtuple.sh
 echo "The xTuple install development script is done!"
