@@ -5,7 +5,6 @@ if `tty -s`; then
    mesg n
 fi
 
-DEV_DIR=/home/vagrant/dev
 # set xtuple source directory
 XTUPLE_DIR=/home/vagrant/dev/xtuple/
 
@@ -18,9 +17,6 @@ cdir() {
 # install git
 sudo apt-get install git -y
 echo "Git has been installed!"
-
-cdir $DEV_DIR
-git clone --recursive https://github.com/xtuple/xtuple.git
 
 # go to xtuple source directory
 cdir $XTUPLE_DIR
