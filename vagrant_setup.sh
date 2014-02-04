@@ -7,8 +7,6 @@ fi
 
 # set xtuple source directory
 XTUPLE_DIR=/home/vagrant/dev/xtuple/
-MODULE=/home/vagrant/dev/xtuple/lib
-LIB=cdir /home/vagrant/dev/xtuple/enyo-client/application/
 
 # handy little function from install_script
 cdir() {
@@ -20,13 +18,26 @@ cdir() {
 sudo apt-get install git -y
 echo "Git has been installed!"
 
+git reset --hard
+
 # this is temporary fix for the problem where Windows
 # cannot translate the symlinks in the repository
+
+# the more permanent solution would loop through the links and edit:
+#SYMLINKS = git ls-files -s | awk '/120000/{print $4}'
+#for LINK in $SYMLINKS
+#then
+# update symlinks
+#git update-index --assume-unchanged $symlink
+#end
+
+MODULE=/home/vagrant/dev/xtuple/lib
 cdir $MODULE
 rm module
 ln -s ../node_modules/ module
 git update-index --assume-unchanged module
 
+LIB=cdir /home/vagrant/dev/xtuple/enyo-client/application/
 cdir $LIB
 rm lib
 ln -s ../../lib lib
