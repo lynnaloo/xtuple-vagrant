@@ -39,6 +39,6 @@ echo "Installing development environment"
 bash scripts/install_xtuple.sh
 
 # this is another Windows symlink fix
-npm install
+#npm install
 
 echo "The xTuple install development script is done!"
