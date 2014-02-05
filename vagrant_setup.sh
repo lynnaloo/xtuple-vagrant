@@ -31,7 +31,7 @@ git reset --hard
 #git update-index --assume-unchanged $symlink
 #end
 
-MODULE=/home/vagrant/dev/xtuple/lib
+MODULE=/home/vagrant/dev/xtuple/lib/
 cdir $MODULE
 rm module
 ln -s ../node_modules/ module
@@ -40,7 +40,7 @@ git update-index --assume-unchanged module
 LIB=cdir /home/vagrant/dev/xtuple/enyo-client/application/
 cdir $LIB
 rm lib
-ln -s ../../lib lib
+ln -s ../../lib/ lib
 git update-index --assume-unchanged lib
 
 # go to xtuple source directory
