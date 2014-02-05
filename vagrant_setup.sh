@@ -11,7 +11,7 @@ XTUPLE_DIR=/home/vagrant/dev/xtuple/
 # handy little function from install_script
 cdir() {
 	echo "Changing directory to $1"
-	sudo cd $1
+	cd $1
 }
 
 # install git
@@ -33,14 +33,14 @@ echo "Git has been installed!"
 cdir $XTUPLE_DIR
 git reset --hard
 
-MODULE=/home/vagrant/dev/xtuple/lib/
-cdir $MODULE
+echo "Changing directory to lib"
+cd /home/vagrant/dev/xtuple/lib/
 rm module
 ln -s ../node_modules/ module
 git update-index --assume-unchanged module
 
-LIB=cdir /home/vagrant/dev/xtuple/enyo-client/application/
-cdir $LIB
+echo "Changing directory to application"
+cd /home/vagrant/dev/xtuple/enyo-client/application/
 rm lib
 ln -s ../../lib/ lib
 git update-index --assume-unchanged lib
@@ -48,8 +48,5 @@ git update-index --assume-unchanged lib
 cdir $XTUPLE_DIR
 echo "Installing development environment"
 bash scripts/install_xtuple.sh
-
-# this is another Windows symlink fix
-#npm install
 
 echo "The xTuple install development script is done!"
