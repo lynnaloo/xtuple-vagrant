@@ -1,14 +1,17 @@
 ## Creating a Vagrant Virtual Development Environment ##
 
-[Vagrant](http://docs.vagrantup.com/v2/why-vagrant/index.html) is open-source software used to create lightweight and portable virtual development environments. Vagrant works like a "wrapper" for VirtualBox that can create, configure, and destroy virtual machines with the use of its own terminal commands. This facilitates the setup of environments that do not require any direct interaction with VirtualBox and allows developers to use software development tools in their native operating system.
+[Vagrant](http://docs.vagrantup.com/v2/why-vagrant/index.html) is open-source software used to create lightweight and portable virtual development environments. Vagrant works like a "wrapper" for VirtualBox that can create, configure, and destroy virtual machines with the use of its own terminal commands. Vagrant facilitates the setup of environments without any direct interaction with VirtualBox and allows developers to use preferred editors and browsers in their native operating system.
 
 ###  Install Vagrant ###
 
 - Download and install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+  - Do not open VirtualBox or create a virtual machine. This will be handled by Vagrant.
 - Download and install [Vagrant](http://www.vagrantup.com/downloads.html)
-  - Package managers like apt-get and gem install are installing an older version of Vagrant, so the download is highly recommended
+  - Package managers like apt-get and gem install will install an older version of Vagrant so it is required to use the download page.
 
 Create forks of the `xtuple`, `xtuple-extensions`, and `xtuple-vagrant` repositories on Github [HOW?](https://github.com/xtuple/xtuple/wiki/Setting-up-an-Ubuntu-Virtual-Machine#get-xtuple-code-base)
+
+Create forks of the `xtuple`, `xtuple-extensions`, and `xtuple-vagrant` repositories on Github [HOW?](https://github.com/xtuple/xtuple/wiki/Setting-up-an-Ubuntu-Virtual-Machine#wiki-get-xtuple-code-base)
 
 Note: This document is for setting up a virtual environment on a Unix host. If you are using a Windows host,
 please use [these instructions](https://github.com/lynnaloo/xtuple-vagrant/wiki/Creating-a-Vagrant-Virtual-Environment-on-a-Windows-Host).
@@ -72,4 +75,10 @@ Add an entry for the IP address of the host machine:
 
     host    all     all     [host ip]/32   trust
 
-The synced folder ```dev``` allows for files to be edited in either the virtual machine or on the host machine and the files will be synced both ways
+The virtual machine can be shut down by using the command:
+
+    vagrant halt
+
+The virtual machine can be destroyed with this command:
+
+    vagrant destroy
