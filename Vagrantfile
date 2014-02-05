@@ -3,7 +3,7 @@
 
 # this is the directory where the xtuple and xtuple-extensions
 # cloned code repositories are located
-sourceDir = "../dev"
+sourceDir = "/Users/Greg/mobile"
 
 Vagrant.configure("2") do |config|
   # All Vagrant configuration is done here. The most common configuration
