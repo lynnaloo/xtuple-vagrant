@@ -7,32 +7,46 @@ fi
 
 # set xtuple source directory
 XTUPLE_DIR=/home/vagrant/dev/xtuple/
-# location of config file
-FILE=$XTUPLE_DIR/node-datasource/config.js
 
 # handy little function from install_script
 cdir() {
-	cd $1
 	echo "Changing directory to $1"
+	cd $1
 }
 
-# abort provisioning if development environment is already installed
-if [ -f $FILE ];
-then
-   echo "Development environment has been installed"
-else
-   # install git
-   sudo apt-get install git -y
-   echo "Git has been installed!"
+# install git
+sudo apt-get install git -y
+echo "Git has been installed!"
 
-   # go to xtuple source directory
-   cdir $XTUPLE_DIR
-   echo "Now in the xtuple source directory"
+# this is temporary fix for the problem where Windows
+# cannot translate the symlinks in the repository
 
-   echo "Installing development environment"
-   # if you don't run the script in the scripts directory,
-   # you get errors which is a problem with the install script
-   cdir scripts
-   sudo ./install_xtuple.sh
-   echo "The xTuple install development script is done!"
-fi
+# the more permanent solution would loop through the links and edit:
+#SYMLINKS = git ls-files -s | awk '/120000/{print $4}'
+#for LINK in $SYMLINKS
+#then
+# update symlinks
+#git update-index --assume-unchanged $symlink
+#end
+
+# go to xtuple source directory
+cdir $XTUPLE_DIR
+git reset --hard
+
+echo "Changing directory to lib"
+cd /home/vagrant/dev/xtuple/lib/
+rm module
+ln -s ../node_modules/ module
+git update-index --assume-unchanged module
+
+echo "Changing directory to application"
+cd /home/vagrant/dev/xtuple/enyo-client/application/
+rm lib
+ln -s ../../lib/ lib
+git update-index --assume-unchanged lib
+
+cdir $XTUPLE_DIR
+echo "Installing development environment"
+bash scripts/install_xtuple.sh
+
+echo "The xTuple install development script is done!"
