@@ -75,4 +75,10 @@ Add an entry for the IP address of the host machine:
 
     host    all     all     [host ip]/32   trust
 
-The synced folder ```dev``` allows for files to be edited in either the virtual machine or on the host machine and the files will be synced both ways
+The virtual machine can be shut down by using the command:
+
+    vagrant halt
+
+The virtual machine can be destroyed with this command:
+
+    vagrant destroy
