@@ -18,8 +18,6 @@ cdir() {
 sudo apt-get install git -y
 echo "Git has been installed!"
 
-git reset --hard
-
 # this is temporary fix for the problem where Windows
 # cannot translate the symlinks in the repository
 
@@ -30,6 +28,10 @@ git reset --hard
 # update symlinks
 #git update-index --assume-unchanged $symlink
 #end
+
+# go to xtuple source directory
+cdir $XTUPLE_DIR
+git reset --hard
 
 MODULE=/home/vagrant/dev/xtuple/lib/
 cdir $MODULE
@@ -43,9 +45,7 @@ rm lib
 ln -s ../../lib/ lib
 git update-index --assume-unchanged lib
 
-# go to xtuple source directory
 cdir $XTUPLE_DIR
-
 echo "Installing development environment"
 bash scripts/install_xtuple.sh
 
