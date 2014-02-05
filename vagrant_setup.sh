@@ -10,8 +10,8 @@ XTUPLE_DIR=/home/vagrant/dev/xtuple/
 
 # handy little function from install_script
 cdir() {
-	cd $1
 	echo "Changing directory to $1"
+	sudo cd $1
 }
 
 # install git
