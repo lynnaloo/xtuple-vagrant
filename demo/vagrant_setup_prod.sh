@@ -18,8 +18,12 @@ cdir() {
 sudo apt-get install git -y
 echo "Git has been installed!"
 
+# go to source shared folder
+cd /home/vagrant/source/
+
 # clone production code, get current tag
 git clone --recursive https://github.com/xtuple/xtuple.git
+
 # go to xtuple source directory
 cdir $XTUPLE_DIR
 git remote add XTUPLE git://github.com/xtuple/xtuple.git
