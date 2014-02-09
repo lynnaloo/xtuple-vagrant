@@ -6,7 +6,7 @@ if `tty -s`; then
 fi
 
 # set xtuple source directory
-XTUPLE_DIR=/home/vagrant/dev/xtuple/
+XTUPLE_DIR=/home/vagrant/source/xtuple/
 
 # handy little function from install_script
 cdir() {
@@ -42,13 +42,13 @@ cdir $XTUPLE_DIR
 git reset --hard
 
 echo "Changing directory to lib"
-cd /home/vagrant/dev/xtuple/lib/
+cd /home/vagrant/source/xtuple/lib/
 rm module
 ln -s ../node_modules/ module
 git update-index --assume-unchanged module
 
 echo "Changing directory to application"
-cd /home/vagrant/dev/xtuple/enyo-client/application/
+cd /home/vagrant/source/xtuple/enyo-client/application/
 rm lib
 ln -s ../../lib/ lib
 git update-index --assume-unchanged lib
