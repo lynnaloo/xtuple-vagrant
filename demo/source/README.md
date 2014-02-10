@@ -10,6 +10,16 @@
 ### Setup Vagrant ###
 
 - [Optional] Edit the host machine's `hosts` file (private/etc/root) as root and add an entry for the virtual machine: `192.168.33.10 xtuple-vagrant`
+ 
+Create a fork of the `xtuple-vagrant` repository on Github
+
+Clone the `xtuple-vagrant` repository in a separate directory adjacent to your development folder:
+
+    cd ..
+    mkdir vagrant
+    cd vagrant
+    git clone https://github.com/<username>/xtuple-vagrant.git
+    cd xtuple-vagrant/demo
 
 ### Install VirtualBox Guest Additions Plugin
 
@@ -31,7 +41,6 @@ Connect to the virtual machine via ssh*:
   program in order to use this command
     
 - The xTuple source code is synced to the folder `~/source`
-
 
 Start the datasource:
 
