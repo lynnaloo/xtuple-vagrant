@@ -20,7 +20,6 @@ echo "Git has been installed!"
 
 # go to source shared folder
 cd /home/vagrant/source/
-
 # clone production code, get current tag
 git clone --recursive https://github.com/xtuple/xtuple.git
 
@@ -29,33 +28,6 @@ cdir $XTUPLE_DIR
 git remote add XTUPLE git://github.com/xtuple/xtuple.git
 git fetch XTUPLE
 git checkout `git describe --abbrev=0`
-
-# this is temporary fix for the problem where Windows
-# cannot translate the symlinks in the repository
-
-# the more permanent solution would loop through the links and edit:
-#SYMLINKS = git ls-files -s | awk '/120000/{print $4}'
-#for LINK in $SYMLINKS
-#then
-# update symlinks
-#git update-index --assume-unchanged $symlink
-#end
-
-# go to xtuple source directory
-cdir $XTUPLE_DIR
-git reset --hard
-
-echo "Changing directory to lib"
-cd /home/vagrant/source/xtuple/lib/
-rm module
-ln -s ../node_modules/ module
-git update-index --assume-unchanged module
-
-echo "Changing directory to application"
-cd /home/vagrant/source/xtuple/enyo-client/application/
-rm lib
-ln -s ../../lib/ lib
-git update-index --assume-unchanged lib
 
 cdir $XTUPLE_DIR
 echo "Installing development environment"
