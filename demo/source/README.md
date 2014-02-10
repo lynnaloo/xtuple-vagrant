@@ -23,9 +23,12 @@ Start the virtual machine:
     
 - Vagrant will automatically run a shell script to install git and the xTuple appliction
 
-Connect to the virtual machine via ssh:
+Connect to the virtual machine via ssh*:
 
     vagrant ssh
+    
+- Windows users will need to install [Git for Windows](http://msysgit.github.io/), or another ssh
+  program in order to use this command
     
 - The xTuple source code is synced to the folder `~/source`
 
