@@ -66,9 +66,9 @@ Default username and password to your local application are `admin`
 
 ### Additional Information ###
 
-Edit `pg_hba.conf` to allow the host machine to access Postgres:
+Edit `pg_hba.conf` to allow the host machine to access Postgres (assumes vim is installed):
 
-    vim cd/etc/postgresql/[postgres version]/main/pg_hba.conf
+    sudo vim /etc/postgresql/[postgres version]/main/pg_hba.conf
 
 Add an entry for the IP address of the host machine:
 
