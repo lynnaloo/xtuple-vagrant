@@ -9,10 +9,10 @@
 - Download and install [Vagrant](http://www.vagrantup.com/downloads.html)
   - Package managers like apt-get and gem install will install an older version of Vagrant so it is required to use the download page.
 
-Create a [fork](https://github.com/xtuple/xtuple/fork) of `xtuple`, a [fork](https://github.com/xtuple/xtuple-extensions/fork) of `xtuple-extensions`, and a [fork](https://github.com/xtuple/xtuple-vagrant/fork) of `xtuple-vagrant` repositories on Github.
+Create forks of the `xtuple`, `xtuple-extensions`, and `xtuple-vagrant` repositories on Github [HOW?](https://github.com/xtuple/xtuple/wiki/Setting-up-an-Ubuntu-Virtual-Machine#wiki-get-xtuple-code-base)
 
 Note: This document is for setting up a virtual environment on a Unix host. If you are using a Windows host,
-please use [these instructions](https://github.com/lynnaloo/xtuple-vagrant/wiki/Creating-a-Vagrant-Virtual-Environment-on-a-Windows-Host).
+please use [these instructions](https://github.com/xtuple/xtuple-vagrant/wiki/Creating-a-Vagrant-Virtual-Environment-on-a-Windows-Host).
 
 Clone the `xtuple` and `xtuple-extensions` repositories to a directory on your host machine:
 
@@ -68,7 +68,7 @@ Default username and password to your local application are `admin`
 
 Edit `pg_hba.conf` to allow the host machine to access Postgres (assumes vim is installed):
 
-    sudo vim /etc/postgresql/[postgres version]/main/pg_hba.conf
+    vim /etc/postgresql/[postgres version]/main/pg_hba.conf
 
 Add an entry for the IP address of the host machine:
 
