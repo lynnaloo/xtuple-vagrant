@@ -10,15 +10,13 @@
 ### Setup Vagrant ###
 
 - [Optional] Edit the host machine's `hosts` file (private/etc/root) as root and add an entry for the virtual machine: `192.168.33.10 xtuple-vagrant`
- 
-Create a fork of the `xtuple-vagrant` repository on Github
 
-Clone the `xtuple-vagrant` repository in a separate directory adjacent to your development folder:
+Clone xTuple's `xtuple-vagrant` repository in a separate directory adjacent to your source folder:
 
     cd ..
     mkdir vagrant
     cd vagrant
-    git clone https://github.com/<username>/xtuple-vagrant.git
+    git clone https://github.com/xtuple/xtuple-vagrant.git
     cd xtuple-vagrant/demo
 
 ### Install VirtualBox Guest Additions Plugin
@@ -54,18 +52,14 @@ Default username and password to your local application are `admin`
 
 ### Additional Information ###
 
-Edit `pg_hba.conf` to allow the host machine to access Postgres:
-
-    vim cd/etc/postgresql/[postgres version]/main/pg_hba.conf
-
-Add an entry for the IP address of the host machine:
-
-    host    all     all     [host ip]/32   trust
-
 The virtual machine can be shut down by using the command:
 
     vagrant halt
+    
+The virtual machine can be started by using the command:
 
-The virtual machine can be destroyed with this command:
+    vagrant up
+
+The virtual machine can be destroyed by using the command:
 
     vagrant destroy
