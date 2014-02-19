@@ -9,10 +9,10 @@
 - Download and install [Vagrant](http://www.vagrantup.com/downloads.html)
   - Package managers like apt-get and gem install will install an older version of Vagrant so it is required to use the download page.
 
-Create forks of the `xtuple`, `xtuple-extensions`, and `xtuple-vagrant` repositories on Github [HOW?](https://github.com/xtuple/xtuple/wiki/Setting-up-an-Ubuntu-Virtual-Machine#wiki-get-xtuple-code-base)
+[Fork](http://github.com/xtuple/xtuple/fork) the `xtuple`, [fork](http://github.com/xtuple/xtuple-extensions/fork)  `xtuple-extensions`, and [fork](http://github.com/xtuple/xtuple-vagrant/fork)  `xtuple-vagrant` repositories on Github.
 
 Note: This document is for setting up a virtual environment on a Unix host. If you are using a Windows host,
-please use [these instructions](https://github.com/lynnaloo/xtuple-vagrant/wiki/Creating-a-Vagrant-Virtual-Environment-on-a-Windows-Host).
+please use [these instructions](../../wiki/Creating-a-Vagrant-Virtual-Environment-on-a-Windows-Host).
 
 Clone the `xtuple` and `xtuple-extensions` repositories to a directory on your host machine:
 

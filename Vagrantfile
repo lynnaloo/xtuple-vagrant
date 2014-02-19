@@ -16,6 +16,9 @@ Vagrant.configure("2") do |config|
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+  
+  # Maintain an ssh connection for longer than 5 minutes
+  config.ssh.timeout = 300
 
   # Vbguest Plugin
   # We will try to autodetect this path.
