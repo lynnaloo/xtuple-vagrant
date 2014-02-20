@@ -1,5 +1,3 @@
-## Creating a Demonstration xTuple Application ##
-
 ###  Install Vagrant ###
 
 - Download and install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
@@ -31,7 +29,7 @@ Start the virtual machine:
 
     vagrant up
     
-- Vagrant will automatically run a shell script to install git and the xTuple appliction
+- Vagrant will automatically run a shell script to install git and the xTuple application
 
 Connect to the virtual machine via ssh*:
 
@@ -54,18 +52,14 @@ Default username and password to your local application are `admin`
 
 ### Additional Information ###
 
-Edit `pg_hba.conf` to allow the host machine to access Postgres:
-
-    vim cd/etc/postgresql/[postgres version]/main/pg_hba.conf
-
-Add an entry for the IP address of the host machine:
-
-    host    all     all     [host ip]/32   trust
-
-The virtual machine can be shut down by using the command:
+The virtual machine is shut-down with the command:
 
     vagrant halt
 
-The virtual machine can be destroyed with this command:
+The virtual machine is started with the command:
+
+    vagrant up
+
+The virtual machine is destroyed with the command:
 
     vagrant destroy
