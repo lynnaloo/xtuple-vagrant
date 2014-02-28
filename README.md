@@ -20,10 +20,19 @@ Clone the `xtuple` and `xtuple-extensions` repositories to a directory on your h
     cd dev
     git clone --recursive https://github.com/<username>/xtuple.git
     git clone --recursive https://github.com/<username>/xtuple-extensions.git
+    
+Checkout the latest tagged release:
 
-Clone the `xtuple-vagrant` repository in a separate directory adjacent to your development folder:
+    cd xtuple
+    git remote add XTUPLE git://github.com/xtuple/xtuple.git
+    git fetch XTUPLE
+    git checkout `git describe --abbrev=0`
 
-    cd ..
+** Repeat these steps for the xtuple-extensions repository
+    
+Go up two directories and clone the `xtuple-vagrant` repository in a separate directory adjacent to your development folder:
+
+    cd ../../
     mkdir vagrant
     cd vagrant
     git clone https://github.com/<username>/xtuple-vagrant.git
