@@ -70,9 +70,9 @@ Edit `pg_hba.conf` to allow the host machine to access Postgres (assumes vim is 
 
     vim /etc/postgresql/[postgres version]/main/pg_hba.conf
 
-Add an entry for the IP address of the host machine:
+Add an entry to allow access to the database:
 
-    host    all     all     [host ip]/32   trust
+    host    all     all   0.0.0.0/0   trust
 
 The virtual machine can be shut down by using the command:
 
