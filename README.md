@@ -14,24 +14,31 @@
 Note: This document is for setting up a virtual environment on a Unix host. If you are using a Windows host,
 please use [these instructions](../../wiki/Creating-a-Vagrant-Virtual-Environment-on-a-Windows-Host).
 
-Clone the `xtuple` and `xtuple-extensions` repositories to a directory on your host machine:
+Clone your forks of the `xtuple` and `xtuple-extensions` repositories to a directory on your host machine and get the latest code from the xTuple repository:
 
     mkdir dev
     cd dev
     git clone --recursive https://github.com/<username>/xtuple.git
     git clone --recursive https://github.com/<username>/xtuple-extensions.git
+    cd xtuple
+    git remote add XTUPLE https://github.com/xtuple/xtuple.git
+    git fetch XTUPLE
+    git merge XTUPLE/master
     
-Clone the `xtuple-vagrant` repository in a separate directory adjacent to your development folder:
+Clone your fork of the `xtuple-vagrant` repository in a separate directory adjacent to your development folder:
 
-    cd ..
+    cd ../..
     mkdir vagrant
     cd vagrant
     git clone https://github.com/<username>/xtuple-vagrant.git
     cd xtuple-vagrant
+    git remote add XTUPLE https://github.com/xtuple-vagrant/xtuple.git
+    git fetch XTUPLE
+    git merge XTUPLE/master
 
 ### Setup Vagrant ###
 
-- Edit the `Vagrantfile` and change the `sourceDir` variable to match the location of the cloned xTuple source code: `sourceDir = "../../dev"`
+- In the `Vagrantfile`, ensure that the `sourceDir` variable to matches the location of the cloned xTuple source code: `sourceDir = "../../dev"`
   - This path should be relative to the location of the Vagrantfile
 
 - [Optional] Edit the host machine's `hosts` file (private/etc/root) as root and add an entry for the virtual machine: `192.168.33.10 xtuple-vagrant`
