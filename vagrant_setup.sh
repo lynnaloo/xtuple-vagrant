@@ -18,21 +18,16 @@ cdir() {
 sudo apt-get install git -y
 echo "Git has been installed!"
 
-# this is temporary fix for the problem where Windows
-# cannot translate the symlinks in the repository
-
-# the more permanent solution would loop through the links and edit:
-#SYMLINKS = git ls-files -s | awk '/120000/{print $4}'
-#for LINK in $SYMLINKS
-#then
-# update symlinks
-#git update-index --assume-unchanged $symlink
-#end
-
 # go to xtuple source directory
 cdir $XTUPLE_DIR
+# update the code from upstream
 git reset --hard
+git remote add XTUPLE https://github.com/xtuple/xtuple.git
+git fetch XTUPLE
+git merge XTUPLE/master
 
+# this is temporary fix for the problem where Windows
+# cannot translate the symlinks in the repository
 echo "Changing directory to lib"
 cd /home/vagrant/dev/xtuple/lib/
 rm module
