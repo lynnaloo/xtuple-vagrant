@@ -81,10 +81,6 @@ Add an entry to allow access to the database:
 
     host    all     all   0.0.0.0/0   trust
 
-The virtual machine can be shut down by using the command:
+Shutting down, restarting, and destroying your VM:
 
-    vagrant halt
-
-The virtual machine can be destroyed with this command:
-
-    vagrant destroy
+[Basic commands](../../wiki/Vagrant-Tips-and-Tricks#wiki-vagrant-commands)
