@@ -32,7 +32,7 @@ Clone your fork of the `xtuple-vagrant` repository in a separate directory adjac
     cd vagrant
     git clone https://github.com/<username>/xtuple-vagrant.git
     cd xtuple-vagrant
-    git remote add XTUPLE https://github.com/xtuple-vagrant/xtuple.git
+    git remote add XTUPLE https://github.com/xtuple/xtuple-vagrant.git
     git fetch XTUPLE
     git merge XTUPLE/master
 
