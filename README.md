@@ -16,27 +16,20 @@ please use [these instructions](../../wiki/Creating-a-Vagrant-Virtual-Environmen
 
 Clone your forks of the `xtuple` and `xtuple-extensions` repositories to a directory on your host machine and get the latest code from the xTuple repository:
 
-Important: If you have previously forked these repositories, please ensure that you [update your fork](../../xtuple/wiki/Basic-Git-Usage#wiki-merging) and [update your dependencies](../../xtuple/wiki/Upgrading#wiki-update-stack-dependencies).
+Important: If you have previously forked these repositories, please ensure that you [update your fork](../../../xtuple/wiki/Basic-Git-Usage#wiki-merging) and [update your dependencies](../../../xtuple/wiki/Upgrading#wiki-update-stack-dependencies).
 
     mkdir dev
     cd dev
     git clone --recursive https://github.com/<username>/xtuple.git
     git clone --recursive https://github.com/<username>/xtuple-extensions.git
-    cd xtuple
-    git remote add XTUPLE https://github.com/xtuple/xtuple.git
-    git fetch XTUPLE
-    git merge XTUPLE/master
     
 Clone your fork of the `xtuple-vagrant` repository in a separate directory adjacent to your development folder:
 
-    cd ../..
+    cd ..
     mkdir vagrant
     cd vagrant
     git clone https://github.com/<username>/xtuple-vagrant.git
     cd xtuple-vagrant
-    git remote add XTUPLE https://github.com/xtuple/xtuple-vagrant.git
-    git fetch XTUPLE
-    git merge XTUPLE/master
 
 ### Setup Vagrant ###
 
