@@ -14,7 +14,7 @@ please use [these instructions](../../wiki/Creating-a-Vagrant-Virtual-Environmen
 
 [Fork](http://github.com/xtuple/xtuple/fork) the `xtuple`, [fork](http://github.com/xtuple/xtuple-extensions/fork)  `xtuple-extensions`, and [fork](http://github.com/xtuple/xtuple-vagrant/fork)  `xtuple-vagrant` repositories on Github.
 
-Important: If you have previously forked these repositories, please ensure that you [update your fork](../../../xtuple/wiki/Basic-Git-Usage#wiki-merging) and [update your dependencies](../../../xtuple/wiki/Upgrading#wiki-update-stack-dependencies).
+Important: If you have previously forked these repositories, please ensure that you [update your fork](../../../xtuple/wiki/Basic-Git-Usage#wiki-merging).
 
 Clone your forks of the `xtuple` and `xtuple-extensions` repositories to a directory on your host machine and get the latest code from the xTuple repository:
 
