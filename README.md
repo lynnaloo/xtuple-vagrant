@@ -73,13 +73,9 @@ Default username and password to your local application are `admin`
 
 ### Additional Information ###
 
-Edit `pg_hba.conf` to allow the host machine to access Postgres (assumes vim is installed):
+Accessing the Vagrant Postgres Database from the Host:
 
-    vim /etc/postgresql/[postgres version]/main/pg_hba.conf
-
-Add an entry to allow access to the database:
-
-    host    all     all   0.0.0.0/0   trust
+[Allow host access](../../wiki/Vagrant-Tips-and-Tricks#wiki-accessing-the-vagrant-postgres-database-from-the-host)
 
 Shutting down, restarting, and destroying your VM:
 
