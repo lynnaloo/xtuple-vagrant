@@ -14,7 +14,7 @@ please use [these instructions](../../wiki/Creating-a-Vagrant-Virtual-Environmen
 
 [Fork](http://github.com/xtuple/xtuple/fork) the `xtuple`, [fork](http://github.com/xtuple/xtuple-extensions/fork)  `xtuple-extensions`, and [fork](http://github.com/xtuple/xtuple-vagrant/fork) `xtuple-vagrant` repositories on Github.
 
-Clone your forks of the `xtuple` and `xtuple-extensions` repositories to a directory on your host machine and get the latest code from the xTuple repository:
+Clone your forks of the `xtuple` and `xtuple-extensions` repositories to a directory on your host machine:
 
     mkdir dev
     cd dev
