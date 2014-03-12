@@ -2,6 +2,9 @@
 
 [Vagrant](http://docs.vagrantup.com/v2/why-vagrant/index.html) is open-source software used to create lightweight and portable virtual development environments. Vagrant works like a "wrapper" for VirtualBox that can create, configure, and destroy virtual machines with the use of its own terminal commands. Vagrant facilitates the setup of environments without any direct interaction with VirtualBox and allows developers to use preferred editors and browsers in their native operating system. [This blog](http://mitchellh.com/the-tao-of-vagrant) describes a typical workflow using Vagrant in a development environment.
 
+Note: This document is for setting up a virtual environment on a Unix host. If you are using a Windows host,
+please use [these instructions](../../wiki/Creating-a-Vagrant-Virtual-Environment-on-a-Windows-Host).
+
 ###  Install Vagrant ###
 
 - Download and install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
@@ -9,32 +12,24 @@
 - Download and install [Vagrant](http://www.vagrantup.com/downloads.html)
   - Package managers like apt-get and gem install will install an older version of Vagrant so it is required to use the download page.
 
-[Fork](http://github.com/xtuple/xtuple/fork) the `xtuple`, [fork](http://github.com/xtuple/xtuple-extensions/fork)  `xtuple-extensions`, and [fork](http://github.com/xtuple/xtuple-vagrant/fork)  `xtuple-vagrant` repositories on Github.
+[Fork](http://github.com/xtuple/xtuple/fork) the `xtuple`, [fork](http://github.com/xtuple/xtuple-extensions/fork)  `xtuple-extensions`, and [fork](http://github.com/xtuple/xtuple-vagrant/fork) `xtuple-vagrant` repositories on Github.
 
-Note: This document is for setting up a virtual environment on a Unix host. If you are using a Windows host,
-please use [these instructions](../../wiki/Creating-a-Vagrant-Virtual-Environment-on-a-Windows-Host).
-
-Clone your forks of the `xtuple` and `xtuple-extensions` repositories to a directory on your host machine and get the latest code from the xTuple repository:
+Clone your forks of the `xtuple` and `xtuple-extensions` repositories to a directory on your host machine:
 
     mkdir dev
     cd dev
     git clone --recursive https://github.com/<username>/xtuple.git
     git clone --recursive https://github.com/<username>/xtuple-extensions.git
-    cd xtuple
-    git remote add XTUPLE https://github.com/xtuple/xtuple.git
-    git fetch XTUPLE
-    git merge XTUPLE/master
     
 Clone your fork of the `xtuple-vagrant` repository in a separate directory adjacent to your development folder:
 
-    cd ../..
+    cd ..
     mkdir vagrant
     cd vagrant
     git clone https://github.com/<username>/xtuple-vagrant.git
     cd xtuple-vagrant
-    git remote add XTUPLE https://github.com/xtuple/xtuple-vagrant.git
-    git fetch XTUPLE
-    git merge XTUPLE/master
+    
+**Important**: If you have previously forked these repositories, please ensure that you [update your fork](../../../xtuple/wiki/Basic-Git-Usage#wiki-merging) and [update your dependencies](../../../xtuple/wiki/Upgrading#wiki-update-stack-dependencies).    
 
 ### Setup Vagrant ###
 
