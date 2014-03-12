@@ -7,6 +7,7 @@ fi
 
 # set xtuple source directory
 XTUPLE_DIR=/home/vagrant/dev/xtuple/
+PRIVATE_DIR=/home/vagrant/dev/private-extensions
 
 # handy little function from install_script
 cdir() {
@@ -23,8 +24,6 @@ cdir $XTUPLE_DIR
 # update the code from upstream
 git reset --hard
 git remote add XTUPLE https://github.com/xtuple/xtuple.git
-git fetch XTUPLE
-git merge XTUPLE/master
 
 # this is temporary fix for the problem where Windows
 # cannot translate the symlinks in the repository
@@ -40,8 +39,15 @@ rm lib
 ln -s ../../lib/ lib
 git update-index --assume-unchanged lib
 
+if [ -d "$PRIVATE_DIR" ]; then
+    # if private exists, npm install
+    cdir $PRIVATE_DIR
+    npm install
+fi
+
 cdir $XTUPLE_DIR
 echo "Installing development environment"
 bash scripts/install_xtuple.sh
 
+# if private-extensions exists, 
 echo "The xTuple install development script is done!"
