@@ -8,6 +8,7 @@ fi
 # set xtuple source directory
 XTUPLE_DIR=/home/vagrant/dev/xtuple/
 PRIVATE_DIR=/home/vagrant/dev/private-extensions
+BI_DIR=/home/vagrant/dev/bi
 
 # handy little function from install_script
 cdir() {
@@ -22,8 +23,11 @@ echo "Git has been installed!"
 # go to xtuple source directory
 cdir $XTUPLE_DIR
 # update the code from upstream
+echo "Updating xtuple repository"
 git reset --hard
 git remote add XTUPLE https://github.com/xtuple/xtuple.git
+git fetch XTUPLE
+git merge XTUPLE/master
 
 # this is temporary fix for the problem where Windows
 # cannot translate the symlinks in the repository
@@ -42,12 +46,18 @@ git update-index --assume-unchanged lib
 if [ -d "$PRIVATE_DIR" ]; then
     # if private exists, npm install
     cdir $PRIVATE_DIR
+    echo "Update private dependencies"
     npm install
+
+    if [ -d "$BI_DIR" ]; then
+        # if bi exists, install extension
+        cdir $XTUPLE_DIR
+        echo "installing bi extension"
+    fi
 fi
 
 cdir $XTUPLE_DIR
-echo "Installing development environment"
+echo "Beginning install script"
 bash scripts/install_xtuple.sh
 
-# if private-extensions exists, 
 echo "The xTuple install development script is done!"
