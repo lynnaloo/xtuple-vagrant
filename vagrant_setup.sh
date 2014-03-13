@@ -43,19 +43,6 @@ rm lib
 ln -s ../../lib/ lib
 git update-index --assume-unchanged lib
 
-if [ -d "$PRIVATE_DIR" ]; then
-    # if private exists, npm install
-    cdir $PRIVATE_DIR
-    echo "Update private dependencies"
-    npm install
-
-    if [ -d "$BI_DIR" ]; then
-        # if bi exists, install extension
-        cdir $XTUPLE_DIR
-        echo "installing bi extension"
-    fi
-fi
-
 cdir $XTUPLE_DIR
 echo "Beginning install script"
 bash scripts/install_xtuple.sh
