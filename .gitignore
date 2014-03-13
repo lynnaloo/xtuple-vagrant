@@ -1,1 +1,3 @@
 .vagrant
+demo/source/*
+!demo/source/README.md
