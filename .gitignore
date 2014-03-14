@@ -4,3 +4,4 @@ demo/source/*
 *.box
 dev
 .git
+.DS_Store
