@@ -70,7 +70,4 @@ Vagrant.configure("2") do |config|
     #v.customize ["modifyvm", :id, "--hwvirtex", "off"]
     #v.customize ["modifyvm", :id, "--cpus", "1"]
   end
-
-  # Add a symbolic link from the shared folder to the source folder
-  #config.vm.provision "shell", inline: 'ln -s source/ dev/'
 end
