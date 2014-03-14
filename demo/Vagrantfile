@@ -72,6 +72,5 @@ Vagrant.configure("2") do |config|
   end
 
   # Add a symbolic link from the shared folder to the source folder
-  #config.vm.provision "shell", inline: 'rm -rf dev'
   #config.vm.provision "shell", inline: 'ln -s source/ dev/'
 end
