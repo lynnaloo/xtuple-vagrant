@@ -7,3 +7,4 @@ git fetch XTUPLE
 git merge XTUPLE/master
 git submodule update --init --recursive
 npm install
+./scripts/build_app.js -w
