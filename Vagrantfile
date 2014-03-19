@@ -5,6 +5,8 @@
 # cloned code repositories are located
 sourceDir = "../../dev"
 
+Vagrant.require_version ">= 1.4.0"
+
 Vagrant.configure("2") do |config|
   # All Vagrant configuration is done here. The most common configuration
   # options are documented and commented below. For a complete reference,
@@ -81,18 +83,4 @@ Vagrant.configure("2") do |config|
   # This forces the script to *not* be run as sudo
   config.vm.provision "shell", path: "vagrant_setup.sh", privileged: "false", binary: "false"
 
-  # Enable provisioning with chef solo, specifying a cookbooks path, roles
-  # path, and data_bags path (all relative to this Vagrantfile), and adding
-  # some recipes and/or roles.
-  #
-  # config.vm.provision :chef_solo do |chef|
-  #   chef.cookbooks_path = "../my-recipes/cookbooks"
-  #   chef.roles_path = "../my-recipes/roles"
-  #   chef.data_bags_path = "../my-recipes/data_bags"
-  #   chef.add_recipe "mysql"
-  #   chef.add_role "web"
-  #
-  #   # You may also specify custom JSON attributes:
-  #   chef.json = { :mysql_password => "foo" }
-  # end
 end
