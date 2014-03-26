@@ -20,15 +20,6 @@ cdir() {
 sudo apt-get install git -y
 echo "Git has been installed!"
 
-# go to xtuple source directory
-cdir $XTUPLE_DIR
-# update the code from upstream
-echo "Updating xtuple repository"
-git reset --hard
-git remote add XTUPLE https://github.com/xtuple/xtuple.git
-git fetch XTUPLE
-git merge XTUPLE/master
-
 # this is temporary fix for the problem where Windows
 # cannot translate the symlinks in the repository
 echo "Changing directory to lib"
