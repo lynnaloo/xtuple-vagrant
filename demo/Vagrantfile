@@ -1,17 +1,31 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+Vagrant.require_version ">= 1.5.0"
+
 Vagrant.configure("2") do |config|
   # All Vagrant configuration is done here. The most common configuration
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "precise64"
+  config.vm.box = "lynnaloo/xtuple-mobile-demo"
+
+  # Update xtuple code and dependencies
+  # This forces the script to *not* be run as sudo
+  #config.vm.provision "shell", path: "xtuple_update.sh", privileged: "false", binary: "false"
+
+  # Share an additional folder to the guest VM. The first argument is
+  # the path on the host to the actual folder. The second argument is
+  # the path on the guest to mount the folder. And the optional third
+  # argument is a set of non-required options.
+  # Control the permissions of this file by setting owner: "root",
+  # group: "root"
+  #config.vm.synced_folder "dev", "/home/vagrant/dev", create: true
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
-  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+  config.vm.box_url = "https://vagrantcloud.com/lynnaloo/xtuple-mobile-demo/version/1/provider/virtualbox.box"
 
   # Vbguest Plugin
   # We will try to autodetect this path.
@@ -23,9 +37,6 @@ Vagrant.configure("2") do |config|
   # set auto_update to false, if you do NOT want to check the correct
   # additions version when booting this machine
   config.vbguest.auto_update = true
-
-  # do NOT download the iso file from a webserver
-  config.vbguest.no_remote = true
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
@@ -42,14 +53,6 @@ Vagrant.configure("2") do |config|
   # your network.
   # config.vm.network :public_network
 
-  # Share an additional folder to the guest VM. The first argument is
-  # the path on the host to the actual folder. The second argument is
-  # the path on the guest to mount the folder. And the optional third
-  # argument is a set of non-required options.
-  # Control the permissions of this file by setting owner: "root",
-  # group: "root"
-  config.vm.synced_folder "source", "/home/vagrant/source"
-
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
   config.vm.provider "virtualbox" do |v|
@@ -58,7 +61,7 @@ Vagrant.configure("2") do |config|
 
     # Use VBoxManage to customize the VM
     # This line disable hw virtualization and increases memory
-    v.customize ["modifyvm", :id, "--memory", "4096"]
+    v.customize ["modifyvm", :id, "--memory", "2048"]
 
     # Via http://blog.liip.ch/archive/2012/07/25/vagrant-and-node-js-quick-tip.html
     v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/vagrant", "1"]
@@ -71,26 +74,4 @@ Vagrant.configure("2") do |config|
     #v.customize ["modifyvm", :id, "--hwvirtex", "off"]
     #v.customize ["modifyvm", :id, "--cpus", "1"]
   end
-
-  # This ensures that the locale is correctly set for Postgres
-  config.vm.provision "shell", inline: 'update-locale LC_ALL="en_US.utf8"'
-
-  # Run install script virtual machine is created
-  # This forces the script to *not* be run as sudo
-  config.vm.provision "shell", path: "vagrant_setup_prod.sh", privileged: "false", binary: "false"
-
-  # Enable provisioning with chef solo, specifying a cookbooks path, roles
-  # path, and data_bags path (all relative to this Vagrantfile), and adding
-  # some recipes and/or roles.
-  #
-  # config.vm.provision :chef_solo do |chef|
-  #   chef.cookbooks_path = "../my-recipes/cookbooks"
-  #   chef.roles_path = "../my-recipes/roles"
-  #   chef.data_bags_path = "../my-recipes/data_bags"
-  #   chef.add_recipe "mysql"
-  #   chef.add_role "web"
-  #
-  #   # You may also specify custom JSON attributes:
-  #   chef.json = { :mysql_password => "foo" }
-  # end
 end
