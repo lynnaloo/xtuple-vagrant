@@ -6,7 +6,7 @@
 sourceDir = "../../xtuple-dev"
 
 $script = <<SCRIPT
-echo Welcome to xTuple
+echo Welcome to xTuple!
 > /etc/motd
 SCRIPT
 

@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 $script = <<SCRIPT
-echo Welcome to xTuple
+echo Welcome to xTuple!
 > /etc/motd
 SCRIPT
 
@@ -13,7 +13,10 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "xtuple-server"
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "lynnaloo/xtuple-mobile-demo"
+  config.vm.box = "xtuple/xtuple-mobile"
+  # The url from where the 'config.vm.box' box will be fetched if it
+  # doesn't already exist on the user's system.
+  config.vm.box_url = "https://vagrantcloud.com/xtuple/xtuple-mobile/version/1/provider/virtualbox.box"
 
   # Sets the Unix Message of the Day
   config.vm.provision "shell", inline: $script
@@ -29,10 +32,6 @@ Vagrant.configure("2") do |config|
   # Control the permissions of this file by setting owner: "root",
   # group: "root"
   #config.vm.synced_folder "dev", "/home/vagrant/dev", create: true
-
-  # The url from where the 'config.vm.box' box will be fetched if it
-  # doesn't already exist on the user's system.
-  config.vm.box_url = "https://vagrantcloud.com/lynnaloo/xtuple-mobile-demo/version/1/provider/virtualbox.box"
 
   # Vbguest Plugin
   # We will try to autodetect this path.
