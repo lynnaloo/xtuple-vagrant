@@ -79,6 +79,9 @@ Vagrant.configure("2") do |config|
     #v.customize ["modifyvm", :id, "--cpus", "1"]
   end
 
+  # Sets the Unix Message of the Day
+  config.vm.provision "shell", inline: $script
+
   # This ensures that the locale is correctly set for Postgres
   config.vm.provision "shell", inline: 'update-locale LC_ALL="en_US.utf8"'
 
