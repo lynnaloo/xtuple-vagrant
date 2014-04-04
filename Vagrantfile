@@ -3,7 +3,7 @@
 
 # this is the directory where the xtuple and xtuple-extensions
 # cloned code repositories are located
-sourceDir = "../../xtuple-dev"
+sourceDir = "../../dev"
 
 $script = <<SCRIPT
 echo Welcome to xTuple
