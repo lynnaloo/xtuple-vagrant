@@ -38,8 +38,6 @@ Clone your fork of the `xtuple-vagrant` repository in a separate directory adjac
 - In the `Vagrantfile`, ensure that the `sourceDir` variable to matches the location of the cloned xTuple source code: `sourceDir = "../../dev"`
   - This path should be relative to the location of the Vagrantfile
 
-- [Optional] Edit the host machine's `hosts` file (private/etc/root) as root and add an entry for the virtual machine: `192.168.33.10 xtuple-vagrant`
-
 ### Install VirtualBox Guest Additions Plugin
 
     vagrant plugin install vagrant-vbguest
@@ -63,8 +61,7 @@ Start the datasource:
     cd dev/xtuple/node-datasource
     node main.js
 
-Launch your local browser and navigate to the static IP Address `http://192.168.33.10:8888` or
-the alias that you used in the hosts file `http://xtuple-vagrant:8888`
+Launch your local browser and navigate to application using localhost `http://localhost:8888` or the static IP Address of the virtual machine `http://192.168.33.10:8888`
 
 Default username and password to your local application are `admin`
 
