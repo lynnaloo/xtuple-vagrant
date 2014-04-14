@@ -12,6 +12,8 @@ please use [these instructions](../../wiki/Creating-a-Vagrant-Virtual-Environmen
 - Download and install [Vagrant 1.5.0](http://www.vagrantup.com/downloads.html)
   - Package managers like apt-get and gem install will install an older version of Vagrant so it is required to use the download page.
 
+New to Github? Learn more about basic Github activities [here](https://help.github.com/categories/54/articles).
+
 [Fork](http://github.com/xtuple/xtuple/fork) the `xtuple`, [fork](http://github.com/xtuple/xtuple-extensions/fork)  `xtuple-extensions`, and [fork](http://github.com/xtuple/xtuple-vagrant/fork) `xtuple-vagrant` repositories on Github.
 
 Clone your forks of the `xtuple` and `xtuple-extensions` repositories to a directory on your host machine:
