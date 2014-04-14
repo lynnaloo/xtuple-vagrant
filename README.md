@@ -2,6 +2,8 @@
 
 [Vagrant](http://docs.vagrantup.com/v2/why-vagrant/index.html) is open-source software used to create lightweight and portable virtual development environments. Vagrant works like a "wrapper" for VirtualBox that can create, configure, and destroy virtual machines with the use of its own terminal commands. Vagrant facilitates the setup of environments without any direct interaction with VirtualBox and allows developers to use preferred editors and browsers in their native operating system. [This blog](http://mitchellh.com/the-tao-of-vagrant) describes a typical workflow using Vagrant in a development environment.
 
+New to Github? Learn more about basic Github activities [here](https://help.github.com/categories/54/articles).
+
 Note: This document is for setting up a virtual environment on a Unix host. If you are using a Windows host,
 please use [these instructions](../../wiki/Creating-a-Vagrant-Virtual-Environment-on-a-Windows-Host).
 
@@ -11,8 +13,6 @@ please use [these instructions](../../wiki/Creating-a-Vagrant-Virtual-Environmen
   - Do not open VirtualBox or create a virtual machine. This will be handled by Vagrant.
 - Download and install [Vagrant 1.5.0](http://www.vagrantup.com/downloads.html)
   - Package managers like apt-get and gem install will install an older version of Vagrant so it is required to use the download page.
-
-New to Github? Learn more about basic Github activities [here](https://help.github.com/categories/54/articles).
 
 [Fork](http://github.com/xtuple/xtuple/fork) the `xtuple`, [fork](http://github.com/xtuple/xtuple-extensions/fork)  `xtuple-extensions`, and [fork](http://github.com/xtuple/xtuple-vagrant/fork) `xtuple-vagrant` repositories on Github.
 
