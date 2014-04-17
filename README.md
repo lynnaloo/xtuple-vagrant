@@ -2,6 +2,8 @@
 
 [Vagrant](http://docs.vagrantup.com/v2/why-vagrant/index.html) is open-source software used to create lightweight and portable virtual development environments. Vagrant works like a "wrapper" for VirtualBox that can create, configure, and destroy virtual machines with the use of its own terminal commands. Vagrant facilitates the setup of environments without any direct interaction with VirtualBox and allows developers to use preferred editors and browsers in their native operating system. [This blog](http://mitchellh.com/the-tao-of-vagrant) describes a typical workflow using Vagrant in a development environment.
 
+New to Github? Learn more about basic Github activities [here](https://help.github.com/categories/54/articles).
+
 Note: This document is for setting up a virtual environment on a Unix host. If you are using a Windows host,
 please use [these instructions](../../wiki/Creating-a-Vagrant-Virtual-Environment-on-a-Windows-Host).
 
@@ -36,8 +38,6 @@ Clone your fork of the `xtuple-vagrant` repository in a separate directory adjac
 - In the `Vagrantfile`, ensure that the `sourceDir` variable to matches the location of the cloned xTuple source code: `sourceDir = "../../dev"`
   - This path should be relative to the location of the Vagrantfile
 
-- [Optional] Edit the host machine's `hosts` file (private/etc/root) as root and add an entry for the virtual machine: `192.168.33.10 xtuple-vagrant`
-
 ### Install VirtualBox Guest Additions Plugin
 
     vagrant plugin install vagrant-vbguest
@@ -61,8 +61,7 @@ Start the datasource:
     cd dev/xtuple/node-datasource
     node main.js
 
-Launch your local browser and navigate to the static IP Address `http://192.168.33.10:8888` or
-the alias that you used in the hosts file `http://xtuple-vagrant:8888`
+Launch your local browser and navigate to application using localhost `http://localhost:8888` or the static IP Address of the virtual machine `http://192.168.33.10:8888`
 
 Default username and password to your local application are `admin`
 
