@@ -20,18 +20,18 @@ Clone your forks of the `xtuple` and `xtuple-extensions` repositories to a direc
 
     mkdir dev
     cd dev
-    git clone --recursive https://github.com/<username>/xtuple.git
-    git clone --recursive https://github.com/<username>/xtuple-extensions.git
-    
+    git clone --recursive https://github.com/<your-github-username-here>/xtuple.git
+    git clone --recursive https://github.com/<your-github-username-here>/xtuple-extensions.git
+
 Clone your fork of the `xtuple-vagrant` repository in a separate directory adjacent to your development folder:
 
     cd ..
     mkdir vagrant
     cd vagrant
-    git clone https://github.com/<username>/xtuple-vagrant.git
+    git clone https://github.com/<your-github-username-here>/xtuple-vagrant.git
     cd xtuple-vagrant
-    
-**Important**: If you have previously forked these repositories, please ensure that you [update your fork](../../../xtuple/wiki/Basic-Git-Usage#wiki-merging) and [update your dependencies](../../../xtuple/wiki/Upgrading#wiki-update-stack-dependencies).    
+
+**Important**: If you have previously forked these repositories, please ensure that you [update your fork](../../../xtuple/wiki/Basic-Git-Usage#wiki-merging) and [update your dependencies](../../../xtuple/wiki/Upgrading#wiki-update-stack-dependencies).
 
 ### Setup Vagrant ###
 
@@ -47,13 +47,13 @@ Clone your fork of the `xtuple-vagrant` repository in a separate directory adjac
 Start the virtual machine:
 
     vagrant up
-    
+
 - Vagrant will automatically run a shell script to install git and the xTuple development environment
 
 Connect to the virtual machine via ssh:
 
     vagrant ssh
-    
+
 - The xTuple source code is synced to the folder `~/dev`
 
 Start the datasource:
