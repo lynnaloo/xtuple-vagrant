@@ -6,12 +6,17 @@ Vagrant.require_version ">= 1.5.0"
 Vagrant.configure("2") do |config|
 
   config.vm.hostname = "xtuple-server"
+  # Set default package name when exporting
+  config.package.name = "xtuple-mobile.box"
 
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "xtuple/xtuple-mobile"
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
   config.vm.box_url = "https://vagrantcloud.com/xtuple/xtuple-mobile/version/1/provider/virtualbox.box"
+
+  # Here we're extending the boot to give Postgres time to load
+  config.vm.boot_timeout = 10000
 
   # Update xtuple code and dependencies
   # This forces the script to *not* be run as sudo
@@ -24,17 +29,6 @@ Vagrant.configure("2") do |config|
   # Control the permissions of this file by setting owner: "root",
   # group: "root"
   #config.vm.synced_folder "dev", "/home/vagrant/dev", create: true
-
-  # Vbguest Plugin
-  # We will try to autodetect this path.
-  # However, if we cannot or you have a special one you may pass it like:
-  # config.vbguest.iso_path = "#{ENV['HOME']}/Downloads/VBoxGuestAdditions.iso"
-  # or
-  # config.vbguest.iso_path = "http://company.server/VirtualBox/%{version}/VBoxGuestAdditions.iso"
-
-  # set auto_update to false, if you do NOT want to check the correct
-  # additions version when booting this machine
-  #config.vbguest.auto_update = true
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
@@ -64,4 +58,6 @@ Vagrant.configure("2") do |config|
     # Boot the VM in Gui mode
     #v.gui = true
   end
+
+  config.ssh.forward_agent = true
 end
