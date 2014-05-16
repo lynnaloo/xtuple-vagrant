@@ -60,7 +60,7 @@ Start the datasource:
 
     cd dev/xtuple/node-datasource
     node main.js
-    
+
 ### xTuple Mobile Web
 
 Launch your local browser and navigate to application using localhost `http://localhost:8888` or the static IP Address of the virtual machine `http://192.168.33.10:8888`
@@ -75,7 +75,7 @@ Default username and password to your local application are `admin`
 * Complete the installation and launch the Desktop Client. On the login screen, enter the data to connect to your local xTuple server:
   * Default username and password to your local application are `admin`
   * The server is the static IP Address of your local xTuple server: `192.168.33.10`
-  * The port is `5432` 
+  * The port is `5432`
 
 ### Additional Information ###
 
