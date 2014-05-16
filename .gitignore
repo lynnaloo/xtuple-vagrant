@@ -1,6 +1,4 @@
 .vagrant
-demo/source/*
-!demo/source/README.md
 *.box
 dev
 .git
