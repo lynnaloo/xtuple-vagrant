@@ -11,7 +11,7 @@ please use [these instructions](../../wiki/Creating-a-Vagrant-Virtual-Environmen
 
 - Download and install [VirtualBox 4.3.8](https://www.virtualbox.org/wiki/Download_Old_Builds_4_3)
   - Do not open VirtualBox or create a virtual machine. This will be handled by Vagrant.
-- Download and install [Vagrant 1.5.0](http://www.vagrantup.com/downloads.html)
+- Download and install [Vagrant 1.5.4](http://www.vagrantup.com/download-archive/v1.5.4.html)
   - Package managers like apt-get and gem install will install an older version of Vagrant so it is required to use the download page.
 
 [Fork](http://github.com/xtuple/xtuple/fork) the `xtuple`, [fork](http://github.com/xtuple/xtuple-extensions/fork)  `xtuple-extensions`, and [fork](http://github.com/xtuple/xtuple-vagrant/fork) `xtuple-vagrant` repositories on Github.
