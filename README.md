@@ -67,15 +67,17 @@ Launch your local browser and navigate to application using localhost `http://lo
 
 Default username and password to your local application are `admin`
 
-### xTuple Desktop Client
+### xTuple Desktop Client ###
 
-* Obtain the latest [xTuple Desktop Client Installer](https://sourceforge.net/projects/postbooks/files/latest/download?source=dlp) for your host platform.
+- Obtain the [xTuple Desktop Client Installer](https://sourceforge.net/projects/postbooks/files/latest/download?source=dlp) for your platform. To be sure the PostBooks Desktop Client version matches the PostBooks database version you are installing, look at the "About" information in the Mobile client.
 
-* Run the installer. On the screen where you select an xTuple database, select "I do not need a Free Trial database."
-* Complete the installation and launch the Desktop Client. On the login screen, enter the data to connect to your local xTuple server:
-  * Default username and password to your local application are `admin`
-  * The server is the static IP Address of your local xTuple server: `192.168.33.10`
-  * The port is `5432`
+- Run the installer. On the screen where you select an xTuple database, select "I do not need a Free Trial database."
+-  Complete the installation and launch the Desktop Client. On the login screen, enter these credentials to connect to your local xTuple server:
+  * Username: `admin`
+  * Password: `admin`
+  * Server : `192.168.33.10`
+  * Port: `5432`
+  * Database: `demo`
 
 ### Additional Information ###
 
