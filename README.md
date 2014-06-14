@@ -11,25 +11,25 @@ please use [these instructions](../../wiki/Creating-a-Vagrant-Virtual-Environmen
 
 - Download and install [VirtualBox 4.3.8](https://www.virtualbox.org/wiki/Download_Old_Builds_4_3)
   - Do not open VirtualBox or create a virtual machine. This will be handled by Vagrant.
-- Download and install [Vagrant 1.5.0](http://www.vagrantup.com/downloads.html)
+- Download and install [Vagrant 1.5.4](http://www.vagrantup.com/download-archive/v1.5.4.html)
   - Package managers like apt-get and gem install will install an older version of Vagrant so it is required to use the download page.
 
 [Fork](http://github.com/xtuple/xtuple/fork) the `xtuple`, [fork](http://github.com/xtuple/xtuple-extensions/fork)  `xtuple-extensions`, and [fork](http://github.com/xtuple/xtuple-vagrant/fork) `xtuple-vagrant` repositories on Github.
 
 Clone your forks of the `xtuple` and `xtuple-extensions` repositories to a directory on your host machine:
 
-    mkdir dev
-    cd dev
-    git clone --recursive https://github.com/<your-github-username-here>/xtuple.git
-    git clone --recursive https://github.com/<your-github-username-here>/xtuple-extensions.git
+    host $ mkdir dev
+    host $ cd dev
+    host $ git clone --recursive https://github.com/<your-github-username-here>/xtuple.git
+    host $ git clone --recursive https://github.com/<your-github-username-here>/xtuple-extensions.git
 
 Clone your fork of the `xtuple-vagrant` repository in a separate directory adjacent to your development folder:
 
-    cd ..
-    mkdir vagrant
-    cd vagrant
-    git clone https://github.com/<your-github-username-here>/xtuple-vagrant.git
-    cd xtuple-vagrant
+    host $ cd ..
+    host $ mkdir vagrant
+    host $ cd vagrant
+    host $ git clone https://github.com/<your-github-username-here>/xtuple-vagrant.git
+    host $ cd xtuple-vagrant
 
 **Important**: If you have previously forked these repositories, please ensure that you [update your fork](../../../xtuple/wiki/Basic-Git-Usage#wiki-merging) and [update your dependencies](../../../xtuple/wiki/Upgrading#wiki-update-stack-dependencies).
 
@@ -40,26 +40,26 @@ Clone your fork of the `xtuple-vagrant` repository in a separate directory adjac
 
 ### Install VirtualBox Guest Additions Plugin
 
-    vagrant plugin install vagrant-vbguest
+    host $ vagrant plugin install vagrant-vbguest
 
 ### Connect to the Virtual Machine ###
 
 Start the virtual machine:
 
-    vagrant up
+    host $ vagrant up
 
 - Vagrant will automatically run a shell script to install git and the xTuple development environment
 
 Connect to the virtual machine via ssh:
 
-    vagrant ssh
+    host $ vagrant ssh
 
 - The xTuple source code is synced to the folder `~/dev`
 
 Start the datasource:
 
-    cd dev/xtuple/node-datasource
-    node main.js
+    vagrant $ cd dev/xtuple/node-datasource
+    vagrant $ node main.js
 
 ### xTuple Mobile Web
 
@@ -67,15 +67,17 @@ Launch your local browser and navigate to application using localhost `http://lo
 
 Default username and password to your local application are `admin`
 
-### xTuple Desktop Client
+### xTuple Desktop Client ###
 
-* Obtain the latest [xTuple Desktop Client Installer](https://sourceforge.net/projects/postbooks/files/latest/download?source=dlp) for your host platform.
+- Obtain the [xTuple Desktop Client Installer](https://sourceforge.net/projects/postbooks/files/latest/download?source=dlp) for your platform. To be sure the PostBooks Desktop Client version matches the PostBooks database version you are installing, look at the "About" information in the Mobile client.
 
-* Run the installer. On the screen where you select an xTuple database, select "I do not need a Free Trial database."
-* Complete the installation and launch the Desktop Client. On the login screen, enter the data to connect to your local xTuple server:
-  * Default username and password to your local application are `admin`
-  * The server is the static IP Address of your local xTuple server: `192.168.33.10`
-  * The port is `5432`
+- Run the installer. On the screen where you select an xTuple database, select "I do not need a Free Trial database."
+-  Complete the installation and launch the Desktop Client. On the login screen, enter these credentials to connect to your local xTuple server:
+  * Username: `admin`
+  * Password: `admin`
+  * Server : `192.168.33.10`
+  * Port: `5432`
+  * Database: `demo`
 
 ### Additional Information ###
 
