@@ -3,7 +3,7 @@
 
 # this is the directory where the xtuple and xtuple-extensions
 # cloned code repositories are located
-sourceDir = "../../dev"
+sourceDir = "../../xtuple-dev"
 
 Vagrant.require_version ">= 1.4.0"
 
@@ -12,10 +12,6 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "hashicorp/precise64"
-
-  # The url from where the 'config.vm.box' box will be fetched if it
-  # doesn't already exist on the user's system.
-  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
   # config.vm.provider 'vmware_fusion' do |v, override|
   #   override.vm.box     = 'precise64_fusion'
@@ -39,8 +35,9 @@ Vagrant.configure("2") do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  config.vm.network :forwarded_port, guest: 8888, host: 8888
-  config.vm.network :forwarded_port, guest: 8443, host: 8443
+  # TODO: need to port-forward to nginx
+  #config.vm.network :forwarded_port, guest: 8888, host: 8888
+  #config.vm.network :forwarded_port, guest: 8443, host: 8443
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.

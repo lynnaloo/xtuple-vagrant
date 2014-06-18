@@ -8,38 +8,26 @@ fi
 # set xtuple source directory
 XTUPLE_DIR=/home/vagrant/dev/xtuple/
 
-# handy little function from install_script
-cdir() {
-	echo "Changing directory to $1"
-	cd $1
-}
+echo "Installing the xTuple Server"
 
-# install git
-echo "Installing Git"
-sudo apt-get install git -y
+cd $XTUPLE_DIR
 
-# this is temporary fix for the problem where Windows
-# cannot translate the symlinks in the repository
-echo "Creating symlink to lib folder"
-cd /home/vagrant/dev/xtuple/lib/
-rm module
-ln -s ../node_modules/ module
-git update-index --assume-unchanged module
+#before_install:
+wget git.io/hikK5g -qO- | sudo bash
+n stable
 
-echo "Creating symlink to application folder"
-cd /home/vagrant/dev/xtuple/enyo-client/application/
-rm lib
-ln -s ../../lib/ lib
-git update-index --assume-unchanged lib
+#install:
+npm install
 
-cdir $XTUPLE_DIR
-echo "Beginning install script"
-bash scripts/install_xtuple.sh
+#before_script:
+sudo npm run server-setup
+npm run test-build
+npm start &
+sleep 10
 
-echo "Adding Vagrant PostgreSQL Access Rule"
-echo "host all all  0.0.0.0/0 trust" | sudo tee -a /etc/postgresql/9.1/main/pg_hba.conf
+#script:
+npm test
+npm run test-datasource
+npm run jshint
 
-echo "Restarting Postgres Database"
-sudo service postgresql restart
-
-echo "The xTuple Server install script is done!"
+echo "The xTuple Server install is now complete."
