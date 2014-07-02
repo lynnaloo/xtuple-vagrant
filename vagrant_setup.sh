@@ -13,17 +13,19 @@ echo "Installing the xTuple Server"
 cd $XTUPLE_DIR
 
 #before_install:
+rm -rf ~/.nvm
 wget git.io/hikK5g -qO- | sudo bash
+n latest
+npm install xtuple-server -g
 n stable
 
 #install:
 npm install
+sudo xtuple-server install-dev --xt-demo --pg-worldlogin
 
 #before_script:
-sudo npm run server-setup
 npm run test-build
-npm start &
-sleep 10
+npm start & sleep 10
 
 #script:
 npm test

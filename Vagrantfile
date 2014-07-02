@@ -1,14 +1,22 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+
 # this is the directory where the xtuple and xtuple-extensions
 # cloned code repositories are located
 sourceDir = "../../xtuple-dev"
 
-Vagrant.require_version ">= 1.4.0"
+require "yaml"
+
+#_config = YAML.load(File.open(File.join(File.dirname(__FILE__), "vagrantconfig.yaml"), File::RDONLY).read)
+
+Vagrant.require_version ">= 1.6.0"
 
 Vagrant.configure("2") do |config|
   config.vm.hostname = "xtuple-server"
+
+  config.vm.post_up_message = "Welcome to the xTuple Server development environment.
+  Use the command 'vagrant ssh' to access your server."
 
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "hashicorp/precise64"
@@ -65,7 +73,7 @@ Vagrant.configure("2") do |config|
     v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/vagrant", "1"]
 
     # Debug VM by booting in Gui mode
-    #v.gui = true
+    v.gui = false
 
     # If the host CPU does not have hardware virtualization support,
     # this will disable that setting in VirtualBox - only works on 32-bit OS
@@ -78,10 +86,9 @@ Vagrant.configure("2") do |config|
   end
 
   # This ensures that the locale is correctly set for Postgres
-  config.vm.provision "shell", inline: 'update-locale LC_ALL="en_US.utf8"'
+  #config.vm.provision "shell", inline: 'update-locale LC_ALL="en_US.utf8"'
 
   # Run install script virtual machine is created
   # This forces the script to *not* be run as sudo
   config.vm.provision "shell", path: "vagrant_setup.sh", privileged: "false", binary: "false"
-
 end
