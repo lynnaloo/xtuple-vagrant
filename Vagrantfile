@@ -6,19 +6,29 @@
 
 sourceDir = "/Users/Greg/mobile"
 
-Vagrant.require_version ">= 1.4.0"
+Vagrant.require_version ">= 1.6.0"
 
 Vagrant.configure("2") do |config|
-  # All Vagrant configuration is done here. The most common configuration
-  # options are documented and commented below. For a complete reference,
-  # please see the online documentation at vagrantup.com.
+  config.vm.hostname = "xtuple-server"
+
+  config.vm.post_up_message = "Welcome to the xTuple Server virtual environment.
+  Use the command 'vagrant ssh' to access your server."
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "precise64"
+  config.vm.box = "hashicorp/precise64"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+
+  # Version 1.6.0 "post up" message
+  #config.vm.post_up_message = "Welcome to the xTuple Server development environment.
+  #Use the command 'vagrant ssh' to access your server."
+
+  # config.vm.provider 'vmware_fusion' do |v, override|
+  #   override.vm.box     = 'precise64_fusion'
+  #   override.vm.box_url = 'http://files.vagrantup.com/precise64_vmware.box'
+  # end
 
   # Vbguest Plugin
   # We will try to autodetect this path.
@@ -39,6 +49,8 @@ Vagrant.configure("2") do |config|
   # accessing "localhost:8080" will access port 80 on the guest machine.
   config.vm.network :forwarded_port, guest: 8888, host: 8888
   config.vm.network :forwarded_port, guest: 8443, host: 8443
+  # Support REST Clients running on Express
+  config.vm.network :forwarded_port, guest: 3000, host: 3000
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -58,9 +70,6 @@ Vagrant.configure("2") do |config|
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
   config.vm.provider "virtualbox" do |v|
-    v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-    v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
-
     # Use VBoxManage to customize the VM
     # This line disable hw virtualization and increases memory
     v.customize ["modifyvm", :id, "--memory", "4096"]
@@ -75,6 +84,10 @@ Vagrant.configure("2") do |config|
     # this will disable that setting in VirtualBox - only works on 32-bit OS
     #v.customize ["modifyvm", :id, "--hwvirtex", "off"]
     #v.customize ["modifyvm", :id, "--cpus", "1"]
+  end
+
+  config.vm.provider "vmware_fusion" do |v|
+    v.vmx["memsize"] = "4096"
   end
 
   # This ensures that the locale is correctly set for Postgres

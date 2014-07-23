@@ -1,19 +1,25 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-Vagrant.require_version ">= 1.5.0"
+Vagrant.require_version ">= 1.6.0"
 
 Vagrant.configure("2") do |config|
-  # All Vagrant configuration is done here. The most common configuration
-  # options are documented and commented below. For a complete reference,
-  # please see the online documentation at vagrantup.com.
+
+  # This is the VagrantFile for generating the xTuple Sales Demo box.
+
+  config.vm.hostname = "xtuple-server"
+
+  config.vm.post_up_message = "Welcome to the xTuple Server virtual environment.
+  Use the command 'vagrant ssh' to access your server."
+
+  # Set default package name when exporting
+  config.package.name = "xtuple-mobile.box"
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "lynnaloo/xtuple-mobile-demo"
+  config.vm.box = "hashicorp/precise64"
 
-  # Update xtuple code and dependencies
-  # This forces the script to *not* be run as sudo
-  #config.vm.provision "shell", path: "xtuple_update.sh", privileged: "false", binary: "false"
+  # Here we're extending the boot to give Postgres time to load
+  config.vm.boot_timeout = 10000
 
   # Share an additional folder to the guest VM. The first argument is
   # the path on the host to the actual folder. The second argument is
@@ -23,26 +29,12 @@ Vagrant.configure("2") do |config|
   # group: "root"
   #config.vm.synced_folder "dev", "/home/vagrant/dev", create: true
 
-  # The url from where the 'config.vm.box' box will be fetched if it
-  # doesn't already exist on the user's system.
-  config.vm.box_url = "https://vagrantcloud.com/lynnaloo/xtuple-mobile-demo/version/1/provider/virtualbox.box"
-
-  # Vbguest Plugin
-  # We will try to autodetect this path.
-  # However, if we cannot or you have a special one you may pass it like:
-  # config.vbguest.iso_path = "#{ENV['HOME']}/Downloads/VBoxGuestAdditions.iso"
-  # or
-  # config.vbguest.iso_path = "http://company.server/VirtualBox/%{version}/VBoxGuestAdditions.iso"
-
-  # set auto_update to false, if you do NOT want to check the correct
-  # additions version when booting this machine
-  config.vbguest.auto_update = true
-
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
   config.vm.network :forwarded_port, guest: 8888, host: 8888
   config.vm.network :forwarded_port, guest: 8443, host: 8443
+  config.vm.network :forwarded_port, guest: 3000, host: 3000
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -60,18 +52,12 @@ Vagrant.configure("2") do |config|
     v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
 
     # Use VBoxManage to customize the VM
-    # This line disable hw virtualization and increases memory
+    # This line increases memory
     v.customize ["modifyvm", :id, "--memory", "2048"]
 
-    # Via http://blog.liip.ch/archive/2012/07/25/vagrant-and-node-js-quick-tip.html
-    v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/vagrant", "1"]
-
-    # Debug VM by booting in Gui mode
+    # Boot the VM in Gui mode
     #v.gui = true
-
-    # If the host CPU does not have hardware virtualization support,
-    # this will disable that setting in VirtualBox - only works on 32-bit OS
-    #v.customize ["modifyvm", :id, "--hwvirtex", "off"]
-    #v.customize ["modifyvm", :id, "--cpus", "1"]
   end
+
+  config.ssh.forward_agent = true
 end
