@@ -4,7 +4,7 @@
 # this is the directory where the xtuple and xtuple-extensions
 # cloned code repositories are located
 
-sourceDir = "/Users/Greg/mobile"
+sourceDir = "../../dev"
 
 Vagrant.require_version ">= 1.6.0"
 
