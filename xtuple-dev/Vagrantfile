@@ -95,6 +95,6 @@ Vagrant.configure("2") do |config|
 
   # Run install script virtual machine is created
   # This forces the script to *not* be run as sudo
-  config.vm.provision "shell", path: "vagrant_setup.sh", privileged: "false", binary: "false"
+  config.vm.provision "shell", path: "vagrant_setup.sh", privileged: "true", binary: "false"
 
 end
