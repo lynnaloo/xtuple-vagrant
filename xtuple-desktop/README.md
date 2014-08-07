@@ -4,10 +4,9 @@
 
 New to Github? Learn more about basic Github activities [here](https://help.github.com/categories/54/articles).
 
-Note: This document is for setting up a virtual environment on a Unix host. If you are using a Windows host,
-please use [these instructions](../../wiki/Creating-a-Vagrant-Virtual-Environment-on-a-Windows-Host).
+Note: This document is for setting up a virtual environment on a Unix host.
 
-###  Install Vagrant ###
+### Install Vagrant ###
 
 - Download and install [VirtualBox 4.3.12](https://www.virtualbox.org/wiki/Downloads)
   - Do not open VirtualBox or create a virtual machine. This will be handled by Vagrant.
@@ -32,7 +31,7 @@ Clone your fork of the `xtuple-vagrant` repository in a separate directory adjac
     host $ git clone https://github.com/<your-github-username-here>/xtuple-vagrant.git
     host $ cd xtuple-vagrant
 
-**Important**: If you have previously forked these repositories, please ensure that you [update your fork](../../../xtuple/wiki/Basic-Git-Usage#wiki-merging) and [update your dependencies](../../../xtuple/wiki/Upgrading#wiki-update-stack-dependencies).
+**Important**: If you have previously forked these repositories, please ensure that you [update your fork](../../../../xtuple/wiki/Basic-Git-Usage#wiki-merging) and [update your dependencies](../../../../xtuple/wiki/Upgrading#wiki-update-stack-dependencies).
 
 ### Setup Vagrant ###
 
