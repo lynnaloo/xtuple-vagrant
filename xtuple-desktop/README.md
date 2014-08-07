@@ -46,7 +46,7 @@ Clone your fork of the `xtuple-vagrant` repository in a separate directory adjac
 
 Start the virtual machine:
 
-    host $ cd /path/to/xtuple-vagrant/xtuple-dev/
+    host $ cd /path/to/xtuple-vagrant/xtuple-desktop/
     host $ vagrant up
 
 - Vagrant will automatically run a shell script to install git and the xTuple development environment(with added Qt dev environment expect this step to take a WHILE) Est ~1-2 Hours depending on internet speed.
@@ -79,18 +79,18 @@ Default username and password to your local application are `admin`
 
 -Enable GUI for debugging/running xTuple desktop application:
 
-    host $ cd /path/to/xtuple-vagrant/xtuple-dev
+    host $ cd /path/to/xtuple-vagrant/xtuple-desktop
     host $ edit Vagrantfile
     host $ change "#v.gui = true" to "v.gui = true"
 
 -Reload your virtual machine:
 
-    host $ cd /xtuple-vagrant/xtuple-dev
+    host $ cd /xtuple-vagrant/xtuple-desktop
     host $ vagrant reload
 
 -You should now see a GUI pop-up, dont worry if you don't want to edit inside of that GUI you can still use 'vagrant ssh' or edit the files on the host. To begin working with the Qt environment compile the application:
 
-    host $ cd /xtuple-vagrant/xtuple-dev
+    host $ cd /xtuple-vagrant/xtuple-desktop
     host $ vagrant ssh
     vagrant $ cd ~/dev/qt-client
     vagrant $ qmake
