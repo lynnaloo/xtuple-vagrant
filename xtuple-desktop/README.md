@@ -4,7 +4,8 @@
 
 New to Github? Learn more about basic Github activities [here](https://help.github.com/categories/54/articles).
 
-Note: This document is for setting up a virtual environment on a Unix host.
+Note: This document is for setting up a virtual environment on a Unix host. If you are using a Windows host,
+please use [these instructions](https://github.com/xtuple/xtuple-vagrant/wiki/Creating-a-Vagrant-Virtual-Development-Environment-For-Qt-AND-Mobile-Development-on-a-Windows-Host).
 
 ### Install Vagrant ###
 
