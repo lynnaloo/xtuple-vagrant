@@ -126,4 +126,4 @@ Default username and password to your local application are `admin`
 
 Shutting down, restarting, and destroying your VM:
 
-[Basic commands](../../wiki/Vagrant-Tips-and-Tricks#wiki-vagrant-commands)
+[Basic commands](https://github.com/xtuple/xtuple-vagrant/wiki/Vagrant-Tips-and-Tricks)
