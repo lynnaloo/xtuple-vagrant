@@ -38,10 +38,6 @@ Clone your fork of the `xtuple-vagrant` repository in a separate directory adjac
 - In the `Vagrantfile`, ensure that the `sourceDir` variable to matches the location of the cloned xTuple source code: `sourceDir = "../../dev"`
   - This path should be relative to the location of the Vagrantfile
 
-### Install VirtualBox Guest Additions Plugin
-
-    host $ vagrant plugin install vagrant-vbguest
-
 ### Connect to the Virtual Machine ###
 
 Start the virtual machine:
