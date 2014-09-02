@@ -20,8 +20,8 @@ Clone your forks of the `xtuple` and `xtuple-extensions` repositories to a direc
 
     host $ mkdir dev
     host $ cd dev
-    host $ git clone --recursive https://github.com/<your-github-username-here>/xtuple.git
-    host $ git clone --recursive https://github.com/<your-github-username-here>/xtuple-extensions.git
+    host $ git clone --recursive https://github.com/<your-github-username>/xtuple.git
+    host $ git clone --recursive https://github.com/<your-github-username>/xtuple-extensions.git
 
 Clone your fork of the `xtuple-vagrant` repository in a separate directory adjacent to your development folder:
 
