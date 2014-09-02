@@ -6,7 +6,7 @@
 
 sourceDir = "../../dev"
 
-Vagrant.require_version ">= 1.6.3"
+Vagrant.require_version ">= 1.6.4"
 
 Vagrant.configure("2") do |config|
   config.vm.hostname = "xtuple-server"
@@ -22,8 +22,8 @@ Vagrant.configure("2") do |config|
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
   # Version 1.6.0 "post up" message
-  #config.vm.post_up_message = "Welcome to the xTuple Server development environment.
-  #Use the command 'vagrant ssh' to access your server."
+  config.vm.post_up_message = "Welcome to the xTuple Server development environment.
+    Use the command 'vagrant ssh' to access your server."
 
   # config.vm.provider 'vmware_fusion' do |v, override|
   #   override.vm.box     = 'precise64_fusion'
@@ -31,18 +31,13 @@ Vagrant.configure("2") do |config|
   # end
 
   # Vbguest Plugin
-  # We will try to autodetect this path.
-  # However, if we cannot or you have a special one you may pass it like:
-  # config.vbguest.iso_path = "#{ENV['HOME']}/Downloads/VBoxGuestAdditions.iso"
-  # or
-  # config.vbguest.iso_path = "http://company.server/VirtualBox/%{version}/VBoxGuestAdditions.iso"
 
   # set auto_update to false, if you do NOT want to check the correct
   # additions version when booting this machine
-  #config.vbguest.auto_update = true
+  config.vbguest.auto_update = true
 
   # do NOT download the iso file from a webserver
-  #config.vbguest.no_remote = true
+  config.vbguest.no_remote = true
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
@@ -78,7 +73,7 @@ Vagrant.configure("2") do |config|
     v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/vagrant", "1"]
 
     # Debug VM by booting in Gui mode
-    #v.gui = true
+    v.gui = false
 
     # If the host CPU does not have hardware virtualization support,
     # this will disable that setting in VirtualBox - only works on 32-bit OS
@@ -95,6 +90,6 @@ Vagrant.configure("2") do |config|
 
   # Run install script virtual machine is created
   # This forces the script to *not* be run as sudo
-  config.vm.provision "shell", path: "vagrant_setup.sh", privileged: "false", binary: "false"
+  config.vm.provision "shell", path: "vagrant_setup.sh", privileged: false, binary: false
 
 end
