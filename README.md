@@ -11,7 +11,7 @@ please use [these instructions](../../wiki/Creating-a-Vagrant-Virtual-Environmen
 
 - Download and install [VirtualBox 4.3.12](https://www.virtualbox.org/wiki/Downloads)
   - Do not open VirtualBox or create a virtual machine. This will be handled by Vagrant.
-- Download and install [Vagrant 1.6.3](http://www.vagrantup.com/download-archive/v1.6.3.html)
+- Download and install [Vagrant 1.6.4](http://www.vagrantup.com/download-archive/v1.6.4.html)
   - Package managers like apt-get and gem install will install an older version of Vagrant so it is required to use the download page.
 
 [Fork](http://github.com/xtuple/xtuple/fork) the `xtuple`, [fork](http://github.com/xtuple/xtuple-extensions/fork)  `xtuple-extensions`, and [fork](http://github.com/xtuple/xtuple-vagrant/fork) `xtuple-vagrant` repositories on Github.
@@ -20,8 +20,8 @@ Clone your forks of the `xtuple` and `xtuple-extensions` repositories to a direc
 
     host $ mkdir dev
     host $ cd dev
-    host $ git clone --recursive https://github.com/<your-github-username-here>/xtuple.git
-    host $ git clone --recursive https://github.com/<your-github-username-here>/xtuple-extensions.git
+    host $ git clone --recursive https://github.com/<your-github-username>/xtuple.git
+    host $ git clone --recursive https://github.com/<your-github-username>/xtuple-extensions.git
 
 Clone your fork of the `xtuple-vagrant` repository in a separate directory adjacent to your development folder:
 
@@ -37,6 +37,10 @@ Clone your fork of the `xtuple-vagrant` repository in a separate directory adjac
 
 - In the `Vagrantfile`, ensure that the `sourceDir` variable to matches the location of the cloned xTuple source code: `sourceDir = "../../dev"`
   - This path should be relative to the location of the Vagrantfile
+
+### Install VirtualBox Guest Additions Plugin
+
+    vagrant plugin install vagrant-vbguest
 
 ### Connect to the Virtual Machine ###
 
