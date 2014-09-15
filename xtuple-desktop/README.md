@@ -71,8 +71,9 @@ Default username and password to your local application are `admin`
 
     vagrant $ cd ~
     vagrant $ edit ./.bashrc
-    vagrant $ add "export PATH=/usr/local/Trolltech/Qt-4.8.6/bin:$PATH" to the end of the file
-    vagrant $ exit
+    vagrant $ add 2 lines: "export PATH=/usr/local/Trolltech/Qt-4.8.6/bin:$PATH" 
+    vagrant $ second:"export DYLD_LIBRARY_PATH=/home/vagrant/dev/qt-client/openrpt/lib:/home/vagrant/dev/qt-client/lib:$DYLD_LIBRARY_PATH"
+    vagrant $ to the end of the file, then exit
 
 -Enable GUI for debugging/running xTuple desktop application:
 
