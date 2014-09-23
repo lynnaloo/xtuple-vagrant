@@ -97,9 +97,11 @@ One common case is configuring a second or third VM running on a single host. Th
 You can also use the `xtHostOffset` variable:
 
 - Get the variables to change:
+
     host $ egrep ^xtHost Vagrantfile > xtlocal.rb
 
 - Then edit the resulting file to look something like this:
+
     xtHostOffset    = 2
     xtHostAddr      = "192.168.33.12"
     xtHostAppPort   = xtGuestAppPort + xtHostOffset
