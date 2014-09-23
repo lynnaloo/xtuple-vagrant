@@ -2,21 +2,27 @@
 # vi: set ft=ruby :
 # To customize: create xtlocal.rb in the current directory
 #               containing assignments to override these defaults
+# xtHostOffset is a convenience variable.
+#   $ egrep ^xtHost Vagrantfile > xtlocal.rb
+#   then edit xtHostOffset, xtHostAddr, xtHostName
+xtHostOffset    = 0
+
 xtBox           = "hashicorp/precise64"
-xtBoxUrl        = "http://files.vagrantup.com/precise64.box"
+xtBoxUrl        = nil
 xtForwardX11    = true
 xtGuestAppPort  = 8443
 xtGuestRestPort = 3000
 xtGuestWebPort  = 8888
 xtGui           = true
 xtHostAddr      = "192.168.33.10"
-xtHostAppPort   = xtGuestAppPort
+xtHostAppPort   = xtGuestAppPort  + xtHostOffset
 xtHostName      = "xtuple-server"
-xtHostRestPort  = xtGuestRestPort
-xtHostWebPort   = xtGuestWebPort
+xtHostRestPort  = xtGuestRestPort + xtHostOffset
+xtHostWebPort   = xtGuestWebPort  + xtHostOffset
 xtSourceDir     = "../../../dev"
 xtSourceMountPt = "/home/vagrant/dev"
 xtSetupSudo     = true
+xtVagrantVer    = ">= 1.6.4"
 xtVboxGuestAU   = true
 xtVboxGuestNR   = true
 xtVboxMemory    = "4096"
@@ -26,7 +32,7 @@ if File.file? "xtlocal.rb"
   IO.foreach("xtlocal.rb") { |line| eval line }
 end
 
-Vagrant.require_version ">= 1.6.3"
+Vagrant.require_version xtVagrantVer
 
 Vagrant.configure("2") do |config|
   config.vm.hostname = xtHostName
